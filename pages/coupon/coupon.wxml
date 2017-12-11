@@ -12,15 +12,15 @@
     <view wx:for="{{coupons}}" class="coupon-list">
       <view class="coupon-list-left {{activeIndex != 'overdue'&& activeIndex != 'hasuse' ? 'cart_bg_color':'sub_color'}}">
         <view>￥{{item.money}}</view>
-        <view>满￥{{item.condition}}可用</view>
+        <view>满￥{{item.full}}可用</view>
       </view>
       <view class="coupon-list-right {{activeIndex != 'overdue'&& activeIndex != 'hasuse' ? '':'sub_color'}}">
-        <view class="coupon-list-title">{{item.title}}</view>
-        <view class="coupon-list-deadline">{{item.start_time}}~{{item.end_time}}</view>
-        <view class="coupon-status all cart_bg_color" wx:if="{{item.status == 'all'}}">立即领取</view>
-        <view class="coupon-status overdue" wx:elif="{{item.status == 'overdue'}}">已过期</view>
-        <view class="coupon-status" wx:elif="{{item.status == 'nouse'}}">已领取({{item.num}})</view>
-        <view class="coupon-status" wx:elif="{{item.status == 'hasuse'}}">已使用</view>
+        <view class="coupon-list-title">{{item.name}}</view>
+        <view class="coupon-list-deadline">{{item.start_time}}~{{item.stop_time}}</view>
+        <view class="coupon-status all cart_bg_color" data-id="{{item.id}}" wx:if="{{item.receive_num > 0 && item.receive_num > item.take_num && activeIndex =='all'}}" bindtap="get_coupons" >立即领取</view>
+        <view class="coupon-status overdue" wx:elif="{{activeIndex =='overdue'}}">已过期</view>
+        <view class="coupon-status" wx:elif="{{item.take_num > 0 || activeIndex =='nouse'}}">已领取({{item.take_num}})</view>
+        <view class="coupon-status" wx:elif="{{activeIndex =='hasuse'}}">已使用</view>
       </view>
     </view>
   </view>
