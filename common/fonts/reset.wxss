@@ -11,6 +11,9 @@
 .bor_color{
   border-color: #dddee1;
 }
+.sub_color{
+  color:#bbbec4;
+}
 .fl{
   float: left;
 }

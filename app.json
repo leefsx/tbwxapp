@@ -1,5 +1,6 @@
 {
   "pages":[
+    "pages/coupon/coupon",
 		"pages/page1/page1",
 		"pages/page2/page2",
     "pages/shopping_cart/shopping_cart",
