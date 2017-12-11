@@ -27,7 +27,7 @@
     align-items: center;
     text-align: center;
     line-height: 75rpx;
-}
+}   
 .coupon-nav view{
     width: 33.3%;
     border-bottom: 6rpx solid transparent;
