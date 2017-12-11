@@ -274,6 +274,9 @@ const productDetailConfig = {
         }
     },
 	onLoad (option){
+    this.setData({
+      displaydata: this.data.param.display
+    })
 		// Parse 'node-style'
         this.parseStyle();
         // Load 'product-detail'
@@ -295,7 +298,10 @@ const productDetailConfig = {
         that.setData({
           detail: detail,
           propertys: res.data.newsku,
-          skulist: res.data.skulist
+          skulist: res.data.skulist,
+          tradeRate: res.data.tradeRate,
+          salesRecords: res.data.salesRecords,
+          productMessage: res.data.productMessage
         });
 				WxParse.wxParse('prdintro', 'html', detail.introduction, that, 5);
                 // for 'product-description'
