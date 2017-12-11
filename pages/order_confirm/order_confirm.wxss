@@ -1,5 +1,5 @@
 /* order_confirm.wxss */
-
+@import '../../common/fonts/comm.wxss';
 .main{
   background-color: #ededed;
   padding-bottom: 100rpx;

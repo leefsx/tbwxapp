@@ -1,5 +1,4 @@
-<import src="../../common/prompt.wxml" />
-<import src="../../common/contact.wxml" />
+<import src="../../common/package/prompt.wxml"/>
 <view class="main">
     <view wx:if="{{foods.length}}">
         <view class="cart-top border_bottom">

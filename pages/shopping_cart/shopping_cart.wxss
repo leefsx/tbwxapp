@@ -1,5 +1,7 @@
-/*@import '../../common/common.wxss';*/
-
+@import '../../common/fonts/comm.wxss';
+.border_bottom{
+  border-bottom: 1rpx solid #dddee1;
+}
 .cart-box{
     padding-bottom: 100rpx;
 }

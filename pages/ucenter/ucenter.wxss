@@ -1,5 +1,4 @@
-/*@import '../../common/common.wxss';*/
-
+@import '../../common/fonts/comm.wxss';
 .header{
     position: relative;
     height: 292rpx;

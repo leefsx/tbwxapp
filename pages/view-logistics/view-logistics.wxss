@@ -1,3 +1,4 @@
+@import '../../common/fonts/comm.wxss';
 .main{
   background-color: #ededed;
   overflow-x: hidden;
