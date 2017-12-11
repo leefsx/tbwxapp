@@ -1,1 +1,1 @@
-module.exports = { "checkcode": "B4yS5SbXGDD1rHEHjfwXznaWp7iKCPJB", "appid": "wx24b2b2feed56da32", "appsecret": "5d5c052719093405f6df5e4ae9684254", "domain": "https://lishifeng2.mywopop.com" }
+module.exports = { "checkcode": "B4yS5SbXGDD1rHEHjfwXznaWp7iKCPJB", "appid": "wx24b2b2feed56da32", "appsecret": "5d5c052719093405f6df5e4ae9684254", "domain": "https://lishifeng2.mywopop.com","insidepage_themecolor":"#c71f3b" }

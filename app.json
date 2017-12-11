@@ -1,9 +1,9 @@
 {
   "pages":[
+    "pages/ucenter/ucenter",
 		"pages/page1/page1",
 		"pages/page2/page2",
     "pages/shopping_cart/shopping_cart",
-    "pages/ucenter/ucenter",
     "pages/login/login",
     "pages/address/address",
     "pages/address-list/address-list",
