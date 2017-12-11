@@ -1,0 +1,111 @@
+<import src="../../wxParse/wxParse.wxml"/>
+<template name="product_detail">
+<view class="product-detail">
+  <block wx:if="{{! detail.errmsg}}">
+  <view class="product-detail-top">
+    <swiper indicator-dots="true" autoplay="true">
+      <swiper-item wx:for="{{detail.pics}}" wx:key="{{index}}">
+        <image src="{{item.origin}}" mode="aspectFit" />
+      </swiper-item>
+    </swiper>
+  </view>
+  <view class="product-detail-middle">
+    <view wx:if="{{param.display.title}}" class="title" style="{{styles.title}}">{{detail.title}}</view>
+    <view wx:if="{{param.display.intro}}" class="tooLong3 content">
+    <template is="wxParse" data="{{wxParseData: prdintro.nodes}}"/>
+    </view>
+    <view class="price">
+        <text wx:if="{{param.display.price}}" class="last_price" style="{{styles.price}}">惊喜价：<text class="color">￥{{detail.price}}</text></text>
+        <text wx:if="{{param.display.market_price}}" class="market_price" style="{{styles.market_price}}">市场价：￥{{detail.mark_price}}</text>
+    </view>
+  </view>
+  <view class="food-xq" bindtap="{{changState}}">
+      <text>产品规格</text>
+      <view class="navigator-arrow"></view>
+  </view>
+  <view class="product-detail-bottom">
+    <view wx:if="{{param.display.attr && detail.attrs.length}}" class="detail-type clearFix" bindtap="{{changeDigShow}}">
+        <view class="fl" style="{{styles.property}}">产品参数</view>
+        <view class="fr">
+            <text class="iconfont icon-zuoyoujiantou"></text>
+        </view>
+    </view>
+    <view class="detail-container-simple" wx:if="{{detailShow}}">
+        <view class="detail-container-simple-title">
+          <text wx:for="{{desctitle}}" wx:key="{{index}}" class="{{tabIdx == index ? 'on' : ''}} detail-container-simple-title-list" data-tabindex="{{index}}" bindtap="{{changeTabIdx}}">{{item.title}}</text>
+        </view>
+        <view class="detail-container-simple-details">
+          <view wx:for="{{prdescArr}}" wx:key="{{index}}" class="container-simple-detail">
+          <template wx:if="{{tabIdx == index}}" is="wxParse" data="{{wxParseData: item}}" /></view>
+        </view>
+    </view>
+    <view wx:if="{{param.display.detail}}" class="detail-info" bindtap="{{changeDetailShow}}">
+        <view>查看产品详情</view>
+        <view class="{{detailShow ? 'icon-shangxiajiantou1' : 'icon-shangxiajiantou'}} iconfont"></view>
+    </view>
+  </view>
+  <view class="specifications" wx:if="{{digShow}}">
+    <view class="mask"></view>
+    <view class="specifications-dig parameters">
+        <text class="iconfont icon-chuyidong specifications-close" bindtap="{{changeDigShow}}"></text>
+        <view class="parameters-title">产品参数</view>
+        <view class="parameter-ul">
+            <view wx:for="{{detail.attrs}}" wx:key="{{index}}" class="parameter-li">
+                <view class="parameter-li-left">{{item.attr_name}}</view>
+                <view class="parameter-li-right">{{item.attr_value}}</view>
+            </view>
+        </view>
+    </view>
+  </view>
+  <view class="detail-foot">
+    <view bindtap="comeBackToFirst">
+      <!--<image mode="aspectFit" src=""></image>-->
+      <text>首页</text>
+    </view>
+    <view url="../cart/cart" class="purchase" bindtap="{{toConfirm}}">立即购买</view>
+    <view url="../cart/cart" class="shoppingdetail-cart" bindtap="{{toCart}}">加入购物车</view>
+  </view>
+  <view>
+    <view class="mask" wx-if="{{currentState}}" bindtap="{{changState}}"></view>
+    <view class="dig" wx-if="{{currentState}}">
+      <view class="detail-cart-box">
+        <view class="detail-cart-list">
+          <view class="detail-cart-list-top">
+            <image class="detail-cart-thumb" src="{{detail.pics[0].origin}}" mode="aspectFit" />
+            <view>
+              <text class="detail-cart-pro-name tooLong">{{detail.name}}</text>
+              <text class="detail-cart-pro-price color small_font">价格：<text>{{detail.price}}</text></text>
+            </view>
+            <icon class="digClose" size="23" type="cancel" color="#aaa" bindtap="{{changState}}"></icon>
+          </view>
+          <!-- 可选无class
+          选中class为active
+          不可选class为disable -->
+          <scroll-view scroll-y style="max-height: 250px;">
+             <view class="detail-cart-property">
+              <view class="property-list border_bottom" wx:for="{{propertys}}" wx:for-index="id">
+                
+                <view class="property-list-name">{{item.name}}</view>
+                <view class="property-list-li">
+                  
+                  <text wx:for="{{item.details}}" data-pid="{{item.id}}" data-did="{{detail.id}}" data-id="{{id}}" data-index="{{index}}" wx:for-item="detail" bindtap="{{switchDetState}}" class="{{detail.detail_state}}">{{detail.detail_name}}</text>
+                  
+                </view>
+              </view>
+            </view> 
+            <view class="detail-cart-count-box">
+              <text class="detail-cart-count-tex">数量:</text>
+              <text class="detail-cart-count-down" bindtap="{{minusCount}}">-</text>
+              <text class="detail-cart-count-num">{{food.num}}</text>
+              <text class="detail-cart-count-add" bindtap="{{addCount}}">+</text>
+              <text class="detail-cart-count-surplus">库存:<text>{{detail.num}}</text></text>
+            </view>
+          </scroll-view>
+        </view>
+      </view>
+    </view>
+  </view>
+  </block>
+  <block wx:else>{{detail.errmsg}}</block>
+</view>
+</template>

@@ -1,0 +1,42 @@
+<import src='../../plugins/title/title.wxml' />
+<import src='../../plugins/media/media.wxml' />
+<import src='../../plugins/navigation/navigation.wxml' />
+<import src='../../plugins/article_detail/article_detail.wxml' />
+
+<view id="scroll_container">
+<view data-layerid='layer178B4C90D31EC853AA0344BF30C61725' id='layer178B4C90D31EC853AA0344BF30C61725' class='mod_wrapper freelayout'>
+	<view id="layerB6E5000DCD0138BD37E4CF7C8A29106C" class="mod_wrapper">
+		<template is="title" data="{{ ...layerB6E5000DCD0138BD37E4CF7C8A29106C}}"/>
+	</view>
+	<view id="layer6B9567EE7E059C7E7DD13AEDBFBC440D" class="mod_wrapper">
+		<template is="title" data="{{ ...layer6B9567EE7E059C7E7DD13AEDBFBC440D}}"/>
+	</view>
+	<view id="layer7C73B8C79BAEC3D548801E914EFF5E94" class="mod_wrapper">
+		<template is="media" data="{{ ...layer7C73B8C79BAEC3D548801E914EFF5E94}}"/>
+	</view>
+</view>
+<view data-layerid='layerE61B79AA0ECD65BCCE0650FC8A8D8234' id='layerE61B79AA0ECD65BCCE0650FC8A8D8234' class='mod_wrapper freelayout'>
+	<view id="layer45D12973F8B6DCBF984B9650028F1124" class="mod_wrapper">
+		<template is="media" data="{{ ...layer45D12973F8B6DCBF984B9650028F1124}}"/>
+	</view>
+	<view id="layer3DFCE280742C428392CA556DB7767BF3" class="mod_wrapper">
+		<template is="navigation" data="{{ ...layer3DFCE280742C428392CA556DB7767BF3}}"/>
+	</view>
+</view>
+	<view id="layer4CEC2A4632FA3834771522C84ADA0C39" class="mod_wrapper">
+		<template is="media" data="{{ ...layer4CEC2A4632FA3834771522C84ADA0C39}}"/>
+	</view>
+	<view id="layerD1C6F8EC7928F1DDCC4468EE634C6DE0" class="mod_wrapper">
+		<template is="article_detail" data="{{ ...layerD1C6F8EC7928F1DDCC4468EE634C6DE0}}"/>
+	</view>
+	<block wx:if="{{showBar}}">
+	<view style="height:110rpx;"></view>
+	<view class="tabBar" style="color:{{tabs.color}};border-color:{{tabs.borderStyle}};background-color:{{tabs.backgroundColor}};">
+	  <view wx:for="{{tabs.list}}" wx:key="{{index}}" class="barList" style="color:{{pageid == item.pagePath ? tabs.selectedColor : tabs.color}}">
+		<view class="barList-content" bindtap="switchTab" data-url="{{item.pagePath}}">
+		  <image class="icon" src="{{pageid == item.pagePath ? item.selectedIconPath : item.iconPath}}"></image>
+		  <view>{{item.text}}</view>
+		</view>
+	  </view>
+	</view></block></view>
+

@@ -1,0 +1,79 @@
+<import src="../../common/contact.wxml" />
+<view class="main">
+    <template wx:if="{{config.customer_service==='1'}}" is="contact" data="{{config}}"/>
+    <view class="header bg_color medium_font">
+        <view class="header-top">
+          <view class="header-title">
+            <image src="{{userInfo.avatarUrl}}" class="thumb"></image>
+            <text class="nickname">{{userInfo.nickName}}</text>
+          </view>
+          <view class="account_money">
+            <image mode="widthFix" src="../../../image/money.png"></image>
+            <text>￥{{cuserInfo.account_money}}</text>    
+          </view>
+        </view>
+        
+        <view class="header-bottom small_font">
+          <view>
+            <text>{{cuserInfo.account_points}}</text>
+            <text>积分</text>
+          </view>
+          <view>
+            <text>{{cartleng}}</text>
+            <text bindtap="toCart">购物车</text>
+          </view>
+        </view>
+    </view>
+    
+    <view class="orders-box">
+        <view class="orders">
+            <navigator url="../orders/orders?activeIndex=all">
+              <text>我的订单</text>
+              <text class="small_font">查看全部</text>
+            </navigator>
+        </view>
+
+        <view class="orders-state">
+            <!-- <navigator url="../orders/orders?activeIndex=hadpay">
+                <view class="state-image">
+                    <image mode="widthFix" src="../../../image/state-1.png"></image>
+                    <view class="color">{{order_num_state.hadpay_num}}</view>
+                </view>
+                <view class="state-tex">已完成</view>
+            </navigator> -->
+            <navigator url="../orders/orders?activeIndex=nopay">
+                <view class="state-image">
+                    <image mode="widthFix" src="../../../image/state-2.png"></image>
+                    <view class="color">{{order_num_state.nopay_num}}</view>
+                </view>
+                <view class="state-tex">待付款</view>
+            </navigator>
+            <navigator url="../orders/orders?activeIndex=delivery">
+                <view class="state-image">
+                    <image mode="widthFix" src="../../../image/state-3.png"></image>
+                    <view class="color">{{order_num_state.hadpay_num}}</view>
+                </view>
+                <view class="state-tex">待发货</view>
+            </navigator>
+            <navigator url="../orders/orders?activeIndex=getit">
+                <view class="state-image">
+                    <image mode="widthFix" src="../../../image/state-4.png"></image>
+                    <view class="color">{{order_num_state.delivery_num}}</view>
+                </view>
+                <view class="state-tex">待收货</view>
+            </navigator>
+            <navigator url="../orders/orders?activeIndex=rating">
+                <view class="state-image">
+                    <image mode="widthFix" src="../../../image/state-5.png"></image>
+                    <view class="color">{{order_num_state.getit_num}}</view>
+                </view>
+                <view class="state-tex">待评价</view>
+            </navigator>
+        </view>
+    </view>
+    <view class="address-box">
+        <view class="address-manage">
+            <navigator url="../address-list/address-list">地址管理</navigator>
+        </view>
+    </view>
+</view>

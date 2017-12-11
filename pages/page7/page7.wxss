@@ -1,0 +1,16 @@
+@import '../../plugins/media/media.wxss';
+@import '../../plugins/title/title.wxss';
+@import '../../plugins/swiper/swiper.wxss';
+@import '../../plugins/navigation/navigation.wxss';
+@import '../../plugins/product_list/product_list.wxss';
+#layerBF9380ECF361E44AC4672A2E7772FFA6{height:74rpx;background-image:none;background-color:#7f6000;background-repeat:repeat;background-position:top left;border-color:transparent;border-style:none;border-width:0rpx;border-radius:0rpx;}
+#layerB11978AF09A2AA8A40037C811A547F7A{height:162rpx;background-image:none;background-color:#ffffff;background-repeat:repeat;background-position:top left;border-color:transparent;border-style:none;border-width:0rpx;border-radius:0rpx;}
+#layer27DD929A1E06C0DEAD96C31F3BBCC118{left:30rpx;top:22rpx;width:320rpx;height:120rpx;text-align:left;background-image:none;background-color:transparent;background-repeat:repeat;background-position:top left;border-color:transparent;border-style:none;border-width:0rpx;border-radius:0rpx;}
+#layer27DD929A1E06C0DEAD96C31F3BBCC118 .media_content image{width:320rpx;opacity:1;border-radius:0rpx;}
+#layer54217CC53CE4DE9E4345404973FC18C7{left:32rpx;top:14rpx;width:200rpx;height:60rpx;background-image:none;background-color:transparent;background-repeat:repeat;background-position:top left;border-color:transparent;border-style:none;border-width:0rpx;border-radius:0rpx;font-size:24rpx;color:#ffffff;font-weight:normal;font-style:normal;text-decoration:none;text-align:left;line-height:1.4;}
+#layerF0C0EB0D7B6021E2E0653DC6238A11BB{height:420rpx;background-image:none;background-color:transparent;background-repeat:repeat;background-position:top left;border-color:transparent;border-style:none;border-width:0rpx;border-radius:0rpx;}
+#layer6373F4C87FE1FC859948800E6CD27C9D{left:610rpx;top:38rpx;width:100rpx;height:80rpx;background-image:none;background-color:transparent;background-repeat:repeat;background-position:top left;border-color:transparent;border-style:none;border-width:0rpx;border-radius:0rpx;}
+#layer8AA29EA85D34404DFAAEA6B8C08E0CA5{left:546rpx;top:8rpx;width:184rpx;height:60rpx;background-image:none;background-color:transparent;background-repeat:repeat;background-position:top left;border-color:transparent;border-style:none;border-width:0rpx;border-radius:0rpx;font-size:24rpx;color:#ffffff;font-weight:normal;font-style:normal;text-decoration:none;text-align:left;line-height:2.1;}
+#layer7CD613AA5C74FCF6D91151781E2A78B0{height:auto;background-image:none;background-color:transparent;background-repeat:repeat;background-position:top left;border-color:transparent;border-style:none;border-width:0rpx;border-radius:0rpx;}
+#layerA250DDD6A1C020CAAF6F7D334D6B6A23{left:458rpx;top:0rpx;width:100rpx;height:60rpx;text-align:left;background-image:none;background-color:transparent;background-repeat:repeat;background-position:top left;border-color:transparent;border-style:none;border-width:0rpx;border-radius:0rpx;}
+#layerA250DDD6A1C020CAAF6F7D334D6B6A23 .media_content image{width:100rpx;opacity:1;border-radius:0rpx;}

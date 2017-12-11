@@ -1,0 +1,21 @@
+<import src='../../plugins/swiper/swiper.wxml' />
+<import src='../../plugins/product_list/product_list.wxml' />
+
+<view id="scroll_container">
+	<view id="layerDFE829E6767E5B0B7C36C8C86B59888A" class="mod_wrapper">
+		<template is="swiper" data="{{ ...layerDFE829E6767E5B0B7C36C8C86B59888A}}"/>
+	</view>
+	<view id="layer2A0819494465FFE535217DD9EB4687DA" class="mod_wrapper">
+		<template is="product_list" data="{{ ...layer2A0819494465FFE535217DD9EB4687DA}}"/>
+	</view>
+	<block wx:if="{{showBar}}">
+	<view style="height:110rpx;"></view>
+	<view class="tabBar" style="color:{{tabs.color}};border-color:{{tabs.borderStyle}};background-color:{{tabs.backgroundColor}};border-top-color:{{tabs.borderTopColor}};">
+	  <view wx:for="{{tabs.list}}" wx:key="{{index}}" class="barList" style="color:{{pageid == item.pagePath ? tabs.selectedColor : tabs.color}}">
+		<view class="barList-content" bindtap="switchTab" data-url="{{item.pagePath}}">
+		  <image class="icon" src="{{pageid == item.pagePath ? item.selectedIconPath : item.iconPath}}"></image>
+		  <view>{{item.text}}</view>
+		</view>
+	  </view>
+	</view></block></view>
+

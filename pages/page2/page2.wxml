@@ -1,0 +1,17 @@
+<import src='../../plugins/product_detail/product_detail.wxml' />
+
+<view id="scroll_container">
+	<view id="layerDE8DDE05AE679CC2FB4498509DCE407A" class="mod_wrapper">
+		<template is="product_detail" data="{{ ...layerDE8DDE05AE679CC2FB4498509DCE407A}}"/>
+	</view>
+	<block wx:if="{{showBar}}">
+	<view style="height:110rpx;"></view>
+	<view class="tabBar" style="color:{{tabs.color}};border-color:{{tabs.borderStyle}};background-color:{{tabs.backgroundColor}};border-top-color:{{tabs.borderTopColor}};">
+	  <view wx:for="{{tabs.list}}" wx:key="{{index}}" class="barList" style="color:{{pageid == item.pagePath ? tabs.selectedColor : tabs.color}}">
+		<view class="barList-content" bindtap="switchTab" data-url="{{item.pagePath}}">
+		  <image class="icon" src="{{pageid == item.pagePath ? item.selectedIconPath : item.iconPath}}"></image>
+		  <view>{{item.text}}</view>
+		</view>
+	  </view>
+	</view></block></view>
+

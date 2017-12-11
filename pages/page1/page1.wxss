@@ -1,0 +1,4 @@
+@import '../../plugins/swiper/swiper.wxss';
+@import '../../plugins/product_list/product_list.wxss';
+#layerDFE829E6767E5B0B7C36C8C86B59888A{height:230rpx;background-image:none;background-color:transparent;background-repeat:repeat;background-position:top left;border-color:transparent;border-style:none;border-width:0rpx;border-radius:0rpx;}
+#layer2A0819494465FFE535217DD9EB4687DA{height:auto;background-image:none;background-color:transparent;background-repeat:repeat;background-position:top left;border-color:transparent;border-style:none;border-width:0rpx;border-radius:0rpx;}

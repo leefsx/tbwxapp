@@ -1,0 +1,12 @@
+<template name="swiper">
+<swiper circular="true" indicator-dots="{{param['indicator-dots']}}"
+ indicator-color="{{param['indicator-color']}}"
+ indicator-active-color="{{param['indicator-active-color']}}"
+ autoplay="{{param.autoplay}}" interval="{{param.interval}}">
+  <block wx:for="{{param.items}}" wx:key="{{index}}">
+	<swiper-item>
+	  <image mode="aspectFit" data-url="{{item.url}}" src="{{item.src}}" bindtap="{{redirectTo}}" />
+	</swiper-item>
+  </block>
+</swiper>
+</template>

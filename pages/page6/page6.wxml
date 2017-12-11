@@ -1,0 +1,161 @@
+<import src='../../plugins/media/media.wxml' />
+<import src='../../plugins/title/title.wxml' />
+<import src='../../plugins/navigation/navigation.wxml' />
+
+<view id="scroll_container">
+<view data-layerid='layer56A65C5AAD2FB89AFE90BC119DE49294' id='layer56A65C5AAD2FB89AFE90BC119DE49294' class='mod_wrapper freelayout'>
+	<view id="layer2478538891A9150937DF3D4007FC2F43" class="mod_wrapper">
+		<template is="title" data="{{ ...layer2478538891A9150937DF3D4007FC2F43}}"/>
+	</view>
+	<view id="layerCB9535339CD41061B561AC921A814D89" class="mod_wrapper">
+		<template is="media" data="{{ ...layerCB9535339CD41061B561AC921A814D89}}"/>
+	</view>
+	<view id="layerB207505C39B3701D033EF5C760982CDC" class="mod_wrapper">
+		<template is="title" data="{{ ...layerB207505C39B3701D033EF5C760982CDC}}"/>
+	</view>
+</view>
+<view data-layerid='layerDF7BF55D6AA9AC03C8A243D36A682159' id='layerDF7BF55D6AA9AC03C8A243D36A682159' class='mod_wrapper freelayout'>
+	<view id="layerF82C1516C6DBDC353A48935DB181374C" class="mod_wrapper">
+		<template is="media" data="{{ ...layerF82C1516C6DBDC353A48935DB181374C}}"/>
+	</view>
+	<view id="layerD7444351D6A9071FDED34628853F5673" class="mod_wrapper">
+		<template is="navigation" data="{{ ...layerD7444351D6A9071FDED34628853F5673}}"/>
+	</view>
+</view>
+	<view id="layerB6A15293B588FE3EFE5879DA37DBB982" class="mod_wrapper">
+		<template is="media" data="{{ ...layerB6A15293B588FE3EFE5879DA37DBB982}}"/>
+	</view>
+	<view id="layerB8D927F0D1A75A5EBF6B081DEE59BD3B" class="mod_wrapper">
+		<template is="media" data="{{ ...layerB8D927F0D1A75A5EBF6B081DEE59BD3B}}"/>
+	</view>
+	<view id="layer6199447E5657070633A4C9CF9F3D4CD1" class="mod_wrapper">
+		<template is="media" data="{{ ...layer6199447E5657070633A4C9CF9F3D4CD1}}"/>
+	</view>
+	<view id="layerC64ACA91BB12AA4938E92ABB269FFD63" class="mod_wrapper">
+		<template is="media" data="{{ ...layerC64ACA91BB12AA4938E92ABB269FFD63}}"/>
+	</view>
+	<view id="layer6E2C2AFF07D419D6EA7BFB3EFBB76CBB" class="mod_wrapper">
+		<template is="media" data="{{ ...layer6E2C2AFF07D419D6EA7BFB3EFBB76CBB}}"/>
+	</view>
+	<view id="layerF10B447474C93CD4D888E031AABB0214" class="mod_wrapper">
+		<template is="media" data="{{ ...layerF10B447474C93CD4D888E031AABB0214}}"/>
+	</view>
+	<view id="layer224FAB176921880899197742AE41CE93" class="mod_wrapper">
+		<template is="media" data="{{ ...layer224FAB176921880899197742AE41CE93}}"/>
+	</view>
+	<view id="layerE4D66E0E4597F8F3C9DECBECB2B785D8" class="mod_wrapper">
+		<template is="media" data="{{ ...layerE4D66E0E4597F8F3C9DECBECB2B785D8}}"/>
+	</view>
+	<view id="layer136AF37F589E28FA71AEFAE54E0C77AF" class="mod_wrapper">
+		<template is="media" data="{{ ...layer136AF37F589E28FA71AEFAE54E0C77AF}}"/>
+	</view>
+	<view id="layer8187A0A5B16D429E5791DEEB85CBC9A3" class="mod_wrapper">
+		<template is="media" data="{{ ...layer8187A0A5B16D429E5791DEEB85CBC9A3}}"/>
+	</view>
+	<view id="layer3B6829318E5AA4757A3531DA2D7D7E0D" class="mod_wrapper">
+		<template is="media" data="{{ ...layer3B6829318E5AA4757A3531DA2D7D7E0D}}"/>
+	</view>
+	<view id="layerC3F6092E5270754A02A1A329F227FC0C" class="mod_wrapper">
+		<template is="media" data="{{ ...layerC3F6092E5270754A02A1A329F227FC0C}}"/>
+	</view>
+	<view id="layer5C80EAE6F6D647D1588076DF37D29241" class="mod_wrapper">
+		<template is="media" data="{{ ...layer5C80EAE6F6D647D1588076DF37D29241}}"/>
+	</view>
+	<view id="layer42D967F7B1B5752F43D2D9E0C8A81056" class="mod_wrapper">
+		<template is="media" data="{{ ...layer42D967F7B1B5752F43D2D9E0C8A81056}}"/>
+	</view>
+	<view id="layer7113825A36260A5C3E962ED348775922" class="mod_wrapper">
+		<template is="media" data="{{ ...layer7113825A36260A5C3E962ED348775922}}"/>
+	</view>
+	<view id="layer2950ABD17BAF445D160D18807E77EDC3" class="mod_wrapper">
+		<template is="media" data="{{ ...layer2950ABD17BAF445D160D18807E77EDC3}}"/>
+	</view>
+	<view id="layerA317DDD10E585CB83B41A012609D7A87" class="mod_wrapper">
+		<template is="media" data="{{ ...layerA317DDD10E585CB83B41A012609D7A87}}"/>
+	</view>
+	<view id="layer6979D8E6C12751ADB171672FCA9AEEED" class="mod_wrapper">
+		<template is="media" data="{{ ...layer6979D8E6C12751ADB171672FCA9AEEED}}"/>
+	</view>
+	<view id="layer93B212FB488D001331EBB011CD6085CD" class="mod_wrapper">
+		<template is="media" data="{{ ...layer93B212FB488D001331EBB011CD6085CD}}"/>
+	</view>
+	<view id="layerD65573E548432362AE4FDAEA1ED0CB1A" class="mod_wrapper">
+		<template is="media" data="{{ ...layerD65573E548432362AE4FDAEA1ED0CB1A}}"/>
+	</view>
+	<view id="layerD73469E6EEBCA47C58296A20C2214F2A" class="mod_wrapper">
+		<template is="media" data="{{ ...layerD73469E6EEBCA47C58296A20C2214F2A}}"/>
+	</view>
+	<view id="layer1E36D0A3E9DD1ED787F848C7962C66DE" class="mod_wrapper">
+		<template is="media" data="{{ ...layer1E36D0A3E9DD1ED787F848C7962C66DE}}"/>
+	</view>
+	<view id="layerA8DD3572E8F299AD0031E0A18C497186" class="mod_wrapper">
+		<template is="media" data="{{ ...layerA8DD3572E8F299AD0031E0A18C497186}}"/>
+	</view>
+	<view id="layer36E1FC8E679AE755A8F2A20E920FBD9A" class="mod_wrapper">
+		<template is="media" data="{{ ...layer36E1FC8E679AE755A8F2A20E920FBD9A}}"/>
+	</view>
+	<view id="layer6AA4A6B17D63832B1AD982D8D204EE6E" class="mod_wrapper">
+		<template is="media" data="{{ ...layer6AA4A6B17D63832B1AD982D8D204EE6E}}"/>
+	</view>
+	<view id="layer673F8A8CE87C0F32DFBC20074CB072BD" class="mod_wrapper">
+		<template is="media" data="{{ ...layer673F8A8CE87C0F32DFBC20074CB072BD}}"/>
+	</view>
+	<view id="layer47F2F06F62A1D3BBBAD01E52922E23A5" class="mod_wrapper">
+		<template is="media" data="{{ ...layer47F2F06F62A1D3BBBAD01E52922E23A5}}"/>
+	</view>
+	<view id="layerE880A23D8E32D7FE8C359FE091BB34D6" class="mod_wrapper">
+		<template is="media" data="{{ ...layerE880A23D8E32D7FE8C359FE091BB34D6}}"/>
+	</view>
+	<view id="layerDB931518A52C714159532CB2FFEE0C5A" class="mod_wrapper">
+		<template is="media" data="{{ ...layerDB931518A52C714159532CB2FFEE0C5A}}"/>
+	</view>
+	<view id="layer5970370F3A2BE48EA4AC234AE2E812B6" class="mod_wrapper">
+		<template is="media" data="{{ ...layer5970370F3A2BE48EA4AC234AE2E812B6}}"/>
+	</view>
+	<view id="layer110E51D512C8B5C1C31437674BFA20BF" class="mod_wrapper">
+		<template is="media" data="{{ ...layer110E51D512C8B5C1C31437674BFA20BF}}"/>
+	</view>
+	<view id="layer53565186A29ED524151166F1C30FE631" class="mod_wrapper">
+		<template is="media" data="{{ ...layer53565186A29ED524151166F1C30FE631}}"/>
+	</view>
+	<view id="layer055942AB52629BCE4C9F9A0F4039CCB2" class="mod_wrapper">
+		<template is="media" data="{{ ...layer055942AB52629BCE4C9F9A0F4039CCB2}}"/>
+	</view>
+	<view id="layer13847D4027A4C6EE850B1A12218139CD" class="mod_wrapper">
+		<template is="media" data="{{ ...layer13847D4027A4C6EE850B1A12218139CD}}"/>
+	</view>
+	<view id="layer983F364E7D68E32C2FD73BF875FF4DF3" class="mod_wrapper">
+		<template is="media" data="{{ ...layer983F364E7D68E32C2FD73BF875FF4DF3}}"/>
+	</view>
+	<view id="layerAE54D946D593A90F1ECBB1B87A29DFDC" class="mod_wrapper">
+		<template is="media" data="{{ ...layerAE54D946D593A90F1ECBB1B87A29DFDC}}"/>
+	</view>
+	<view id="layer66C2A73094A6F8BB022EBE7E5B1867C1" class="mod_wrapper">
+		<template is="media" data="{{ ...layer66C2A73094A6F8BB022EBE7E5B1867C1}}"/>
+	</view>
+	<view id="layerA37CFB42AFA1B45DD08EE8C5325CE837" class="mod_wrapper">
+		<template is="media" data="{{ ...layerA37CFB42AFA1B45DD08EE8C5325CE837}}"/>
+	</view>
+	<view id="layerE95C2F069879811982FAF32BE0650596" class="mod_wrapper">
+		<template is="media" data="{{ ...layerE95C2F069879811982FAF32BE0650596}}"/>
+	</view>
+	<view id="layerAAE1F937422575C5E237572E31FAFD80" class="mod_wrapper">
+		<template is="media" data="{{ ...layerAAE1F937422575C5E237572E31FAFD80}}"/>
+	</view>
+	<view id="layer580D04C8FFDCE2B6C34F3D0E49EBFF5D" class="mod_wrapper">
+		<template is="media" data="{{ ...layer580D04C8FFDCE2B6C34F3D0E49EBFF5D}}"/>
+	</view>
+	<view id="layerAD32BDA0D487A4FF30AB9D454D77561C" class="mod_wrapper">
+		<template is="media" data="{{ ...layerAD32BDA0D487A4FF30AB9D454D77561C}}"/>
+	</view>
+	<block wx:if="{{showBar}}">
+	<view style="height:110rpx;"></view>
+	<view class="tabBar" style="color:{{tabs.color}};border-color:{{tabs.borderStyle}};background-color:{{tabs.backgroundColor}};">
+	  <view wx:for="{{tabs.list}}" wx:key="{{index}}" class="barList" style="color:{{pageid == item.pagePath ? tabs.selectedColor : tabs.color}}">
+		<view class="barList-content" bindtap="switchTab" data-url="{{item.pagePath}}">
+		  <image class="icon" src="{{pageid == item.pagePath ? item.selectedIconPath : item.iconPath}}"></image>
+		  <view>{{item.text}}</view>
+		</view>
+	  </view>
+	</view></block></view>
+

@@ -1,0 +1,19 @@
+{
+  "pages":[
+		"pages/page1/page1",
+		"pages/page2/page2",
+    "pages/shopping_cart/shopping_cart",
+    "pages/ucenter/ucenter",
+    "pages/login/login",
+    "pages/address/address",
+    "pages/address-list/address-list",
+    "pages/orders/orders",
+    "pages/order_detail/order_detail",
+    "pages/order_confirm/order_confirm",
+    "pages/view-logistics/view-logistics",
+    "pages/ratings/ratings"	  ],
+  "window":{
+    "backgroundTextStyle":"light"
+      }
+  }
+

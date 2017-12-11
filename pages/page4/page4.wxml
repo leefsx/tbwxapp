@@ -1,0 +1,41 @@
+<import src='../../plugins/title/title.wxml' />
+<import src='../../plugins/media/media.wxml' />
+<import src='../../plugins/navigation/navigation.wxml' />
+
+<view id="scroll_container">
+<view data-layerid='layer8B2BC5724A706D6C5B1E31C405C6CEE6' id='layer8B2BC5724A706D6C5B1E31C405C6CEE6' class='mod_wrapper freelayout'>
+	<view id="layer0FC2379CBD30DDB88837945FFABD9BDF" class="mod_wrapper">
+		<template is="title" data="{{ ...layer0FC2379CBD30DDB88837945FFABD9BDF}}"/>
+	</view>
+	<view id="layerFA02DE43A77E2955DCC66FE775F6F3A8" class="mod_wrapper">
+		<template is="title" data="{{ ...layerFA02DE43A77E2955DCC66FE775F6F3A8}}"/>
+	</view>
+	<view id="layer91C555F60F2EFD3E0CAFFE1C6A75A1F0" class="mod_wrapper">
+		<template is="media" data="{{ ...layer91C555F60F2EFD3E0CAFFE1C6A75A1F0}}"/>
+	</view>
+</view>
+<view data-layerid='layerEC4FDA56AC5A7F522622162AF43136BA' id='layerEC4FDA56AC5A7F522622162AF43136BA' class='mod_wrapper freelayout'>
+	<view id="layer28FD4ED19E2F9C8E82DDE6AA06362258" class="mod_wrapper">
+		<template is="media" data="{{ ...layer28FD4ED19E2F9C8E82DDE6AA06362258}}"/>
+	</view>
+	<view id="layerC373B54DE4150AAB4E7188DA1D031944" class="mod_wrapper">
+		<template is="navigation" data="{{ ...layerC373B54DE4150AAB4E7188DA1D031944}}"/>
+	</view>
+</view>
+	<view id="layerC3295A570C911367D30E55927D08D89C" class="mod_wrapper">
+		<template is="media" data="{{ ...layerC3295A570C911367D30E55927D08D89C}}"/>
+	</view>
+	<view id="layerE013FC916972A75C7E889C0298E0287E" class="mod_wrapper">
+		<template is="title" data="{{ ...layerE013FC916972A75C7E889C0298E0287E}}"/>
+	</view>
+	<block wx:if="{{showBar}}">
+	<view style="height:110rpx;"></view>
+	<view class="tabBar" style="color:{{tabs.color}};border-color:{{tabs.borderStyle}};background-color:{{tabs.backgroundColor}};">
+	  <view wx:for="{{tabs.list}}" wx:key="{{index}}" class="barList" style="color:{{pageid == item.pagePath ? tabs.selectedColor : tabs.color}}">
+		<view class="barList-content" bindtap="switchTab" data-url="{{item.pagePath}}">
+		  <image class="icon" src="{{pageid == item.pagePath ? item.selectedIconPath : item.iconPath}}"></image>
+		  <view>{{item.text}}</view>
+		</view>
+	  </view>
+	</view></block></view>
+
