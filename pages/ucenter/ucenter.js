@@ -1,5 +1,6 @@
 // page/component/new-pages/user/user.js
 var comm = require('../../wxParse/common.js');
+let config = require("../../static/config.js");
 var app = getApp();
 Page({
   data:{
@@ -29,7 +30,8 @@ Page({
         data: {
           openid: openid,
           nickName: uinfo.nickName || '',
-          avatarUrl: uinfo.avatarUrl || ''
+          avatarUrl: uinfo.avatarUrl || '',
+          insidepage_themecolor: config.insidepage_themecolor || '#c71f3b'
         },
         method: 'GET',
         success: function (res) {

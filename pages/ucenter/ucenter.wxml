@@ -1,5 +1,5 @@
 <view class="main">
-    <view class="header bg_color medium_font">
+    <view class="header bg_color medium_font" style="backgroumd:{{insidepage_themecolor}}">
         <view class="header-top">
           <view class="header-title">
             <image src="{{userInfo.avatarUrl}}" class="thumb"></image>
