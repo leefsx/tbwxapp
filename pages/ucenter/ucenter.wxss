@@ -1,4 +1,10 @@
 @import '../../common/fonts/comm.wxss';
+.cart_color{
+  color: #c71f3b;
+}
+.cart_bg_color{
+  background-color: #c71f3b;
+}
 .header{
     position: relative;
     height: 292rpx;
@@ -21,27 +27,13 @@
     border-radius: 50%;
     margin-right: 30rpx;
 }
-.header .account_money{
-    position: absolute;
-    right: 0rpx;
-    top: 60rpx;
-    display: flex;
-    flex-direction: row;
-    align-items: center;
-    height: 70rpx;
-    border-top-left-radius: 35rpx;
-    border-bottom-left-radius: 35rpx;
-    padding: 0 30rpx 0 40rpx;
-    background-color: #f39800;
-}
-.header .account_money image{
-  width: 40rpx;
-  display: inline-block;
-  margin-right: 8rpx;
-}
-.header .account_money text{
-  display: inline-block;
-}
+.page_back{
+  position: absolute;
+  right: 16rpx;
+  top: 16rpx;
+  font-size: 32rpx;
+  color:#fff;
+}  
 
 .header-bottom{
   display: flex;
@@ -63,8 +55,6 @@
 }
 
 .address-box{
-    /*border-bottom: 20rpx solid #ededed;*/
-    color: #999;
     line-height: 90rpx;
     font-size: 28rpx;
 }
@@ -86,19 +76,7 @@
     -webkit-transform: rotate(45deg);
     transform: rotate(45deg);
 }
-/*.address-box .address-list{
-    padding-left: 30rpx;
-}
-.address-box .address-list view{
-    height: 90rpx;
-    border-bottom: 1rpx solid #e9e9e9;
-}
-.address-box .address-list view:last-child{
-    border-bottom: 0;
-}*/
-
 .orders-box{
-    color: #999;
     font-size: 28rpx;
     border-bottom: 20rpx solid #ededed;
 }
@@ -144,13 +122,13 @@
     width:100rpx;
     margin:0 auto;
 }
-.state-image image{
-    width: 80rpx;
+.state-image .iconfont{
+  font-size: 70rpx;
 }
 .state-image view{
     position:absolute;
-    right:6rpx;
-    top:0rpx;
+    right:8rpx;
+    top:2rpx;
     width:25rpx;
     height:25rpx;
     border:1rpx solid #c71f3b;
@@ -160,11 +138,7 @@
     background-color:#fff;
     font-size:22rpx;
 }
-.orders-state .state-tex{
-    margin-top:-9rpx;
-}
 .esc{
-    color: #999;
     line-height: 90rpx;
     font-size: 28rpx;
     border-bottom: 1rpx solid #e9e9e9;

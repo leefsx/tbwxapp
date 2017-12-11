@@ -1,28 +1,23 @@
 <view class="main">
-    <view class="header bg_color medium_font" style="backgroumd:{{insidepage_themecolor}}">
+    <view class="header cart_bg_color medium_font" style="backgroumd:{{insidepage_themecolor}}">
         <view class="header-top">
           <view class="header-title">
             <image src="{{userInfo.avatarUrl}}" class="thumb"></image>
             <text class="nickname">{{userInfo.nickName}}</text>
           </view>
-          <view class="account_money">
-            <image mode="widthFix" src="../../../image/money.png"></image>
-            <text>￥{{cuserInfo.account_money}}</text>    
-          </view>
         </view>
-        
         <view class="header-bottom small_font">
           <view>
             <text>{{cuserInfo.account_points}}</text>
             <text>积分</text>
           </view>
           <view>
-            <text>{{cartleng}}</text>
-            <text bindtap="toCart">购物车</text>
+            <text>￥{{cuserInfo.account_money}}</text>
+            <text bindtap="toCart">余额</text>
           </view>
         </view>
+        <text class="iconfont icon-fanhui1 page_back"></text>
     </view>
-    
     <view class="orders-box">
         <view class="orders">
             <navigator url="../orders/orders?activeIndex=all">
@@ -32,37 +27,30 @@
         </view>
 
         <view class="orders-state">
-            <!-- <navigator url="../orders/orders?activeIndex=hadpay">
-                <view class="state-image">
-                    <image mode="widthFix" src="../../../image/state-1.png"></image>
-                    <view class="color">{{order_num_state.hadpay_num}}</view>
-                </view>
-                <view class="state-tex">已完成</view>
-            </navigator> -->
             <navigator url="../orders/orders?activeIndex=nopay">
                 <view class="state-image">
-                    <image mode="widthFix" src="../../../image/state-2.png"></image>
+                    <text class="iconfont icon-daifukuan cart_color"></text>
                     <view class="color">{{order_num_state.nopay_num}}</view>
                 </view>
                 <view class="state-tex">待付款</view>
             </navigator>
             <navigator url="../orders/orders?activeIndex=delivery">
                 <view class="state-image">
-                    <image mode="widthFix" src="../../../image/state-3.png"></image>
+                    <text class="iconfont icon-fahuotixing cart_color"></text>
                     <view class="color">{{order_num_state.hadpay_num}}</view>
                 </view>
                 <view class="state-tex">待发货</view>
             </navigator>
             <navigator url="../orders/orders?activeIndex=getit">
                 <view class="state-image">
-                    <image mode="widthFix" src="../../../image/state-4.png"></image>
+                    <text class="iconfont icon-daishouhuo cart_color"></text>
                     <view class="color">{{order_num_state.delivery_num}}</view>
                 </view>
                 <view class="state-tex">待收货</view>
             </navigator>
             <navigator url="../orders/orders?activeIndex=rating">
                 <view class="state-image">
-                    <image mode="widthFix" src="../../../image/state-5.png"></image>
+                    <text class="iconfont icon-daipingjia1 cart_color"></text>
                     <view class="color">{{order_num_state.getit_num}}</view>
                 </view>
                 <view class="state-tex">待评价</view>
@@ -72,6 +60,11 @@
     <view class="address-box">
         <view class="address-manage">
             <navigator url="../address-list/address-list">地址管理</navigator>
+        </view>
+    </view>
+    <view class="address-box">
+        <view class="address-manage">
+            <navigator url="../coupon/coupon">优惠券</navigator>
         </view>
     </view>
 </view>

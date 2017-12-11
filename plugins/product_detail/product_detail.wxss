@@ -1,5 +1,10 @@
 @import "/wxParse/wxParse.wxss";
-
+.cart_color{
+  color: #c71f3b;
+}
+.cart_bg_color{
+  background-color: #c71f3b;
+}
 .product-detail{
   width: 100%;
   height: 100%;
@@ -161,39 +166,21 @@
   width: 100%;
   z-index: 100;
   overflow: hidden;
+  background-color: #fff;
 }
 
 .detail-foot view{
   float: left;
   width: 50%;
   text-align: center;
-  background-color: #c71f3b;
-  color: #fff;
+  /* background-color: #c71f3b;
+  color: #fff; */
   height: 100rpx;
-}
-.detail-foot view:first-child{
-  width: 0%;
-  background-color: #fff;
-  color: #adadad;
-  align-items:center; 
-  display: flex;
-  flex-direction: column;
-  justify-content:space-around;
-}
-.detail-foot view:first-child image{
-  width: 40rpx;
-  height: 40rpx;
-
-}
-.detail-foot view:first-child text{
-  font-size: 26rpx;
-}
-.detail-foot view:nth-child(2){
   line-height: 100rpx;
+  border-top: 1rpx solid #e9e9e9;
 }
 .detail-foot view:last-child{
-  background-color: #f39800;
-  line-height: 100rpx;
+  color: #fff;
 }
 
 .food-xq{
@@ -371,3 +358,73 @@
 .wxParse-img:first-child{
   margin-top: 0rpx;
 }
+
+.ratings-ul{
+  background-color: #fff;
+}
+.ratings-list{
+  border-bottom: 12rpx solid #e9e9e9;
+  padding: 0 20rpx;  
+}
+.ratings-list view:first-child{
+  line-height: 40rpx;
+  border-bottom: 1rpx solid #e9e9e9;
+}            
+.ratings-list:last-child{
+  border-bottom: 0;
+}    
+
+.ratings-list >text{
+  padding: 10rpx 0;
+  line-height: 32rpx;
+}
+.ratings-tip{
+  text-align: right;
+  line-height: 50rpx;
+}
+.no_resault{
+  line-height: 50rpx;
+}   
+
+
+
+.good-rec-content{
+    margin-top: 20rpx;
+    border:1rpx solid #e9e9e9;
+    padding: 20rpx 10rpx;
+    background: #fff;
+    min-height: 150rpx;  
+}
+.table{
+    min-height: 100rpx;
+}
+.tr{
+  display: flex;
+  width: 100%;
+  justify-content: center;
+  height: 40rpx;
+  align-items: center;
+}
+.td {
+    width:25%;
+    justify-content: center;
+    text-align: center;
+    overflow:hidden;
+    white-space:nowrap;
+    text-overflow:ellipsis;
+}
+.th {
+  width: 25%;
+  justify-content: center;
+  height: 40rpx;
+  align-items: center;
+  text-align: center;
+}
+.good-rating-last{
+    display: block;
+    text-align: right;
+}
+.detail-info{
+  margin-bottom: 100rpx;
+}
+                

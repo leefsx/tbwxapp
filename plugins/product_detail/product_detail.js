@@ -36,7 +36,7 @@ const productDetailConfig = {
         },
         changeTabIdx (e){
             let idx = e.target.dataset.tabindex;
-            this.setData({tabIdx: parseInt(idx)})
+            this.setData({tabIdx: idx})
         },
         changState() {
           this.setData({
