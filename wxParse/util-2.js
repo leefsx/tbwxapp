@@ -13,7 +13,7 @@ function Promise(fun, options) {
         }
         options.success = resolve;
         options.fail = reject;
-        fun(options);
+        fun(options.apiclass, options.apimethod, options);
     });
 }
 

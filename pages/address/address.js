@@ -160,8 +160,9 @@ Page({
         }
       })
     }
-    Promise(app.apiRequest('user','basearea'), {
-      data: { 'pid': pid}
+    
+    Promise(app.apiRequest, {
+      data: { 'apiclass': 'user', 'apimethod': 'basearea','pid': pid}
     }).then((province) => {
       const firstProvince = province.data.data[0];
       that.addDot(province.data.data);
@@ -176,8 +177,8 @@ Page({
       });
       
       return (
-        Promise(app.apiRequest('user', 'basearea'), {
-          data: { 'pid': firstProvince.code }
+        Promise(app.apiRequest, {
+          data: { 'apiclass': 'user', 'apimethod': 'basearea','pid': firstProvince.code }
         })
       );
     }).then((city) => {
@@ -194,8 +195,8 @@ Page({
        */
       if (that.data.showDistrict) {
         return (
-          Promise(app.apiRequest('user', 'basearea'), {
-            data: { 'pid': firstCity.code }
+          Promise(app.apiRequest, {
+            data: { 'apiclass': 'user', 'apimethod': 'basearea','pid': firstCity.code }
           })
         );
       } else {
@@ -236,16 +237,16 @@ Page({
     if (current_value.length > 2) {
       if (this.data.value[0] !== current_value[0] && this.data.value[1] === current_value[1] && this.data.value[2] === current_value[2]) {
         // 滑动省份
-        Promise(app.apiRequest('user', 'basearea'), {
-          data: { 'pid': _data.proviceData[current_value[0]].code }
+        Promise(app.apiRequest, {
+          data: { 'apiclass': 'user', 'apimethod': 'basearea','pid': _data.proviceData[current_value[0]].code }
         }).then((city) => {
           this.addDot(city.data.data);
           this.setData({
             cityData: city.data.data
           })
           return (
-            Promise(app.apiRequest('user', 'basearea'), {
-              data: { 'pid': city.data.data[0].code }
+            Promise(app.apiRequest, {
+              data: { 'apiclass': 'user', 'apimethod': 'basearea','pid': city.data.data[0].code }
             })
           );
           }).then((district) => {
@@ -272,8 +273,8 @@ Page({
         })
       } else if (this.data.value[0] === current_value[0] && this.data.value[1] !== current_value[1] && this.data.value[2] === current_value[2]) {
         // 滑动城市
-        Promise(app.apiRequest('user', 'basearea'), {
-          data: { 'pid': _data.cityData[current_value[1]].code }
+        Promise(app.apiRequest, {
+          data: { 'apiclass': 'user', 'apimethod': 'basearea','pid': _data.cityData[current_value[1]].code }
         }).then((district) => {
           if (district.data.data.length > 0) {
             this.addDot(district.data.data);
