@@ -32,4 +32,10 @@
   padding: 20rpx 30rpx 0 30rpx;
   background: #fff;
 }
-
+.icon-wujiaoxing2,.icon-wujiaoxing{
+  font-size: 46rpx;
+  display: inline-block;
+  vertical-align: middle;
+  color: #bbb;
+  margin-right: 6rpx;
+}

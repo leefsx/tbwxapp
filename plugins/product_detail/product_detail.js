@@ -286,7 +286,7 @@ const productDetailConfig = {
 			product_id = option.product_id;
         } else if (Array.isArray(dsval) && dsval.length > 0)
             product_id = parseInt(dsval[0]);
-        
+    
         app.apiRequest('product_detail', 'index', {
             data: {product_id},
             success (res){

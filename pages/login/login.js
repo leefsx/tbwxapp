@@ -27,8 +27,8 @@ Page({
     })
   },
   backHome(){
-    wx.switchTab({
-      url:'/pages/page1'
+    wx.redirectTo({
+      url: '/pages/page1/page1'
     })
   },
   logIn: function () {

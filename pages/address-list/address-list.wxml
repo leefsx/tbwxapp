@@ -14,11 +14,13 @@
                     <view class="edit">
                         <view bindtap="toAddressEdit" data-id="{{ item.id }}">
                             <text class="small_font color2">编辑:</text>
-                            <image class="icon" src="../../../image/iconfont-edit.png" />
+                            <text class="iconfont icon-edit"></text>
+                            <!-- <image class="icon" src="../../../image/iconfont-edit.png" /> -->
                         </view>
                         <view bindtap="cancelAddress" data-id="{{ item.id }}">
                             <text class="small_font color2">删除:</text>
-                            <image class="icon" src="../../../image/iconfont-cancel.png" />
+                            <text class="iconfont icon-shanchu"></text>
+                            <!-- <image class="icon" src="../../../image/iconfont-cancel.png" /> -->
                         </view>
                         
                         <!--<image class="icon" src="../../../image/iconfont-cancel.png" />-->
@@ -28,8 +30,9 @@
         </view>
         
     </view>
-    <view class="btn-plus" bindtap="toAddressAdd">
-        <image class="icon" src="../../../image/iconfont-plus-circle.png" />
+    <view class="btn-plus cart_color" bindtap="toAddressAdd">
+        <!-- <image class="icon" src="../../../image/iconfont-plus-circle.png" /> -->
+        <text class="iconfont icon-tianjia"></text>
         <text>新增地址</text>
     </view>
 </view>

@@ -25,9 +25,10 @@
   </view> -->
   <view class="product-detail-bottom">
     <view class="detail-type" wx:if="{{displaydata.buynow || displaydata.addtocart}}"  bindtap="{{changState}}">
-        <view class="fl">选择<text class="color">(5)</text>规格</view>
+        <!-- <view class="fl">选择<text class="color">(5)</text>规格</view> -->
+        <view class="fl">选择规格</view>
         <view class="fr">
-            <text>黄色,红色,绿色</text>
+            <!-- <text>黄色,红色,绿色</text> -->
             <i class="iconfont icon-zuoyoujiantou"></i>
         </view>
     </view>
