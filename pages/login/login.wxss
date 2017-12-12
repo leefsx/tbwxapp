@@ -5,6 +5,13 @@
 } 
 .loginbox{
   margin-top: 12rpx;
+  width: 100%;
+}
+.loginicon{
+  font-size: 46rpx;
+  line-height: 90rpx;
+  vertical-align: middle;
+  margin-right: 10rpx;
 }
 .inline-block{
   width: 100%;
@@ -13,19 +20,22 @@
   border-bottom: 1rpx solid #ddd;
   overflow: hidden;
   padding-left: 30rpx;
+  box-sizing: border-box;
 }
 
-.inline-block image{
+/* .inline-block image{
   display: inline-block;
   width:40rpx;
   height: 40rpx; 
   line-height: 90rpx;
   vertical-align: 30rpx;
   margin-right: 20rpx;
-}
+} */
 .inline-block input{
   display: inline-block;
   height: 90rpx;
+  vertical-align: middle;
+  font-size: 28rpx;
 }
 .usermotto button{
   width: 90%;

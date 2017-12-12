@@ -53,10 +53,20 @@
 	text-align: center;
 	background-color: #fff;
 	border-top: 1rpx solid #e1e1e1;
+	font-size: 30rpx;
 }
-.btn-plus image{
+.btn-plus text:first-child{
+	font-size: 20px;
+	display: inline-block;
+	vertical-align: middle;
+	margin-right: 10rpx;
+}
+.btn-plus text:last-child{
+	vertical-align: middle;
+}
+/* .btn-plus image{
 	width: 40rpx;
 	height: 40rpx;
 	margin-right: 10rpx;
 	vertical-align:-6rpx;
-}
+} */

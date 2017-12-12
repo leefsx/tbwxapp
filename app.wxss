@@ -112,3 +112,10 @@ background-color: #c71f3b;
   color: #c71f3b;
   border-bottom: 6rpx solid #c71f3b;
 }
+
+
+
+
+.icon-wujiaoxing{
+  color: #c71f3b !important;
+}

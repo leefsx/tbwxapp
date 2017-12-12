@@ -106,7 +106,8 @@
 
   <view class="confirm-msg confirm-box border_bottom2">
     <view class="confirm-msg-box">
-      <image src="../../../image/msg.jpg"></image>
+       <!-- <image src="../../../image/msg.jpg"></image>  -->
+       <text class="iconfont icon-edit"></text> 
       <input placeholder="给商家留言" bindblur="binkMessageConfirm" type="text" />
     </view>
   </view>

@@ -1,6 +1,6 @@
 <import src="../../common/package/prompt.wxml"/>
 <view class="coupon">
-  <view class="coupon-title">优惠券</view>
+  <!-- <view class="coupon-title">优惠券</view> -->
   <view class="coupon-nav medium_font">
       <view bindtap="changActive" data-id="all" class="{{activeIndex == 'all' ? 'active':''}}">领券中心</view>
       <view bindtap="changActive" data-id="nouse" class="{{activeIndex == 'nouse' ? 'active':''}}">未使用</view>

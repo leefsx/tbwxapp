@@ -9,7 +9,8 @@ Page({
    * 页面的初始数据
    */
   data: {
-    wjxNum: ['/image/wjx.png', '/image/wjx.png', '/image/wjx.png', '/image/wjx.png','/image/wjx.png'],
+    // wjxNum: ['/images/wjx.png', '/images/wjx.png', '/images/wjx.png', '/images/wjx.png','/images/wjx.png'],
+    wjxNum2: ['icon-wujiaoxing2', 'icon-wujiaoxing2', 'icon-wujiaoxing2', 'icon-wujiaoxing2', 'icon-wujiaoxing2'],
     score: '',
     content: '',
     submit: true,
@@ -92,21 +93,39 @@ Page({
       })
     }
   },
-  selectStar(e) {
+  // selectStar(e) {
+  //   let index = e.currentTarget.dataset.index;
+  //   let wjxNum = this.data.wjxNum;
+  //   let submit = this.data.submit
+  //   if (submit == false) return false
+  //   for (let key in wjxNum) {
+  //     wjxNum[key] = '/images/wjx.png'
+  //   }
+  //   for (let key in wjxNum) {
+  //     if(key <= index){
+  //       wjxNum[key] ='/images/wjx-select.png'
+  //     }
+  //   }
+  //   this.setData({
+  //     wjxNum: wjxNum,
+  //     score: index
+  //   })
+  // },
+  selectStar2(e) {
     let index = e.currentTarget.dataset.index;
-    let wjxNum = this.data.wjxNum;
+    let wjxNum2 = this.data.wjxNum2;
     let submit = this.data.submit
     if (submit == false) return false
-    for (let key in wjxNum) {
-      wjxNum[key] = '/image/wjx.png'
+    for (let key in wjxNum2) {
+      wjxNum2[key] = 'icon-wujiaoxing2'
     }
-    for (let key in wjxNum) {
-      if(key <= index){
-        wjxNum[key] ='/image/wjx-select.png'
+    for (let key in wjxNum2) {
+      if (key <= index) {
+        wjxNum2[key] = 'icon-wujiaoxing'
       }
     }
     this.setData({
-      wjxNum: wjxNum,
+      wjxNum2: wjxNum2,
       score: index
     })
   }, 
