@@ -1,4 +1,5 @@
 // pages/component/coupon/coupon.js
+var app = getApp()
 Page({
 
   /**
@@ -57,18 +58,78 @@ Page({
       }
     ]
   },
-  changActive(e) {
+  changActive(e, activeIndex = '') {
     var that = this
-    const id = e.currentTarget.dataset.id;
+    var types = ''
+    var methodname = 'events_coupons'
+    var id = ''
+    if (activeIndex){
+      var id = activeIndex
+    }else{
+      var id = e.currentTarget.dataset.id;
+    }
+    if (id == 'all'){
+      types = 'canuse'
+    } else if (id == 'overdue'){
+      types = 'expired'
+    } else if (id == 'nouse' || id == 'hasuse'){
+      methodname = 'coupons'
+      types = id
+    }
+    app.apiRequest('user', methodname, {
+      data: {type: types},
+      success: function(res){
+        if(res.data.result = 'OK'){
+          that.setData({
+            coupons: res.data.data
+          })
+        }
+      }
+    })
     that.setData({
       activeIndex: id
+    })
+  },
+  get_coupons(e) {
+    var that = this
+    var cid = e.currentTarget.dataset.id
+    app.apiRequest('user','gotcoupon', {
+      data: {cid: cid},
+      success: function (res){
+        if(res.data.result == 'OK'){
+          wx.showToast({
+            title: '领取成功',
+            icon: 'success',
+            duration: 2000
+          })
+          that.changActive('','nouse')
+        }else{
+          wx.showToast({
+            title: '领取失败',
+            icon: 'success',
+            duration: 2000
+          })
+        }
+      }
     })
   },
   /**
    * 生命周期函数--监听页面加载
    */
   onLoad: function (options) {
-  
+    var that = this
+    app.apiRequest('user', 'events_coupons', {
+      data: {},
+      success: function (res) {
+        console.log(res.data)
+        if (res.data.result == 'OK') {
+          that.setData({
+            coupons: res.data.data
+          })
+        }
+      }
+
+    })
   },
 
   /**

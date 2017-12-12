@@ -130,7 +130,7 @@ const productDetailConfig = {
               var send_data = {
                 cid: detail_data.id,
                 title: detail_data.name,
-                image: detail_data.feature_img[0],
+                image: detail_data.feature_img,
                 num: that.data.food.num,
                 price: detail_data.price,
                 sum: detail_data.price,
@@ -274,6 +274,9 @@ const productDetailConfig = {
         }
     },
 	onLoad (option){
+    this.setData({
+      displaydata: this.data.param.display
+    })
 		// Parse 'node-style'
         this.parseStyle();
         // Load 'product-detail'
@@ -295,7 +298,10 @@ const productDetailConfig = {
         that.setData({
           detail: detail,
           propertys: res.data.newsku,
-          skulist: res.data.skulist
+          skulist: res.data.skulist,
+          tradeRate: res.data.tradeRate,
+          salesRecords: res.data.salesRecords,
+          productMessage: res.data.productMessage
         });
 				WxParse.wxParse('prdintro', 'html', detail.introduction, that, 5);
                 // for 'product-description'

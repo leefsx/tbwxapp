@@ -24,7 +24,7 @@
       <view class="navigator-arrow"></view>
   </view> -->
   <view class="product-detail-bottom">
-    <view class="detail-type" bindtap="{{changState}}">
+    <view class="detail-type" wx:if="{{displaydata.buynow || displaydata.addtocart}}"  bindtap="{{changState}}">
         <view class="fl">选择<text class="color">(5)</text>规格</view>
         <view class="fr">
             <text>黄色,红色,绿色</text>
@@ -40,38 +40,30 @@
     <view class="detail-container-simple" wx:if="{{detailShow}}">
         <view class="detail-container-simple-title">
           <text wx:for="{{desctitle}}" wx:key="{{index}}" class="{{tabIdx == index ? 'on' : ''}} detail-container-simple-title-list" data-tabindex="{{index}}" bindtap="{{changeTabIdx}}">{{item.title}}</text>
-          <text class="{{tabIdx == 'detail_rating' ? 'on' : ''}} detail-container-simple-title-list" data-tabindex="detail_rating" bindtap="{{changeTabIdx}}">顾客评价</text>
-          <text class="{{tabIdx == 'detail_recoding' ? 'on' : ''}} detail-container-simple-title-list" data-tabindex="detail_recoding" bindtap="{{changeTabIdx}}">购买记录</text>
-          <text class="{{tabIdx == 'qANDa' ? 'on' : ''}} detail-container-simple-title-list" data-tabindex="qANDa" bindtap="{{changeTabIdx}}">买家回答</text>
+          <text wx:if="{{displaydata.customer_rating}}" class="{{tabIdx == 'detail_rating' ? 'on' : ''}} detail-container-simple-title-list" data-tabindex="detail_rating" bindtap="{{changeTabIdx}}">顾客评价</text>
+          <text wx:if="{{displaydata.purchase_record}}" class="{{tabIdx == 'detail_recoding' ? 'on' : ''}} detail-container-simple-title-list" data-tabindex="detail_recoding" bindtap="{{changeTabIdx}}">购买记录</text>
+          <text wx:if="{{displaydata.buyer_faq}}" class="{{tabIdx == 'qANDa' ? 'on' : ''}} detail-container-simple-title-list" data-tabindex="qANDa" bindtap="{{changeTabIdx}}">买家回答</text>
         </view>
         <view class="detail-container-simple-details">
           <view wx:for="{{prdescArr}}" wx:key="{{index}}" class="container-simple-detail">
           <template wx:if="{{tabIdx == index}}" is="wxParse" data="{{wxParseData: item}}" /></view>
-          <view class="detail_rating" wx:if="{{tabIdx == 'detail_rating'}}">
-            <view class="no_resault">暂无信息</view>
-            <view class="ratings-ul">
-              <view class="ratings-list"> 
+          <view class="detail_rating" wx:if="{{tabIdx == 'detail_rating' && displaydata.customer_rating}}">
+            <view class="ratings-ul" wx:if="{{tradeRate.length>0}}">
+              <view class="ratings-list" wx:for="{{tradeRate}}"> 
                 <view class="clearFix sub_color">
-                  <text class="ratibngs-list-user fl">user@009</text>
-                  <text class="fr">2017.12.4 12:12</text>
+                  <text class="ratibngs-list-user fl">{{item.usernick}}</text>
+                  <text class="fr">{{item.created}}</text>
                 </view>
-                <view>非常好！</view>
-              </view>
-              <view class="ratings-list"> 
-                <view class="clearFix sub_color">
-                  <text class="ratibngs-list-user fl">user@009</text>
-                  <text class="fr">2017.12.4 12:12</text>
-                </view>
-                <text>非常好！</text>
+                <view>{{item.content}}</view>
               </view>
             </view>
-				    <view class="ratings-tip">总共<text class="color">3</text>条数据</view>
+            <view wx:else class="no_resault">暂无信息</view>
+				    <view class="ratings-tip">总共<text class="color">{{tradeRate.length}}</text>条数据</view>
           </view>
 
-          <view wx:if="{{tabIdx == 'detail_recoding'}}">
+          <view wx:if="{{tabIdx == 'detail_recoding' && displaydata.purchase_record}}">
             <view class="good-rec-content">
               <view class="table">
-                <view class="no-resault">暂无数据</view>
                 <view class="tr bg-w">
                   <view class="th">购买人</view>
                   <view class="th">数量</view>
@@ -96,27 +88,19 @@
               <text class="good-rating-last">总共<text class="color">{{salesRecords.length}}</text>条记录</text>
             </view>
           </view>
-          <view wx:if="{{tabIdx == 'qANDa'}}">
-            <view class="no_resault">暂无信息</view>
-            <view class="ratings-ul">
-              <view class="ratings-list"> 
+          <view wx:if="{{tabIdx == 'qANDa' && displaydata.buyer_faq}}">
+            <view class="ratings-ul" wx:if="{{productMessage.length>0}}">
+              <view class="ratings-list" wx:for="{{productMessage}}"> 
                 <view class="clearFix sub_color">
-                  <text class="ratibngs-list-user fl">user@009</text>
-                  <text class="fr">2017.12.4 12:12</text>
+                  <text class="ratibngs-list-user fl">{{item.usernick}}</text>
+                  <text class="fr">{{item.created}}</text>
                 </view>
-                <text>问题：该产品好吗？</text>
-                <text>答复：非常好</text>
-              </view>
-              <view class="ratings-list"> 
-                <view class="clearFix sub_color">
-                  <text class="ratibngs-list-user fl">user@009</text>
-                  <text class="fr">2017.12.4 12:12</text>
-                </view>
-                <text>问题：该产品好吗？</text>
-                <text>答复：非常好</text>
+                <text>{{item.content}}</text>
+                <text>{{item.reply}}</text>
               </view>
             </view>
-            <view class="ratings-tip">总共<span class="color">3</span>条数据</view>
+            <view class="no_resault" wx:else>暂无信息</view>
+            <view class="ratings-tip">总共<span class="color">{{productMessage.length}}</span>条数据</view>
           </view>
         </view>
     </view>
@@ -139,9 +123,9 @@
         <view style="height: 100rpx;"></view>
     </view>
   </view>
-  <view class="detail-foot">
-    <view url="../cart/cart" class="shoppingdetail-cart" bindtap="{{toCart}}"><text class="iconfont icon-jiarugouwuche"></text>加入购物车</view>
-    <view url="../cart/cart" class="purchase cart_bg_color" bindtap="{{toConfirm}}"><text class="iconfont icon-lijigoumai"></text>立即购买</view>
+  <view class="detail-foot" wx:if="{{displaydata.buynow || displaydata.addtocart}}">
+    <view wx:if="{{displaydata.addtocart}}" url="../cart/cart" class="shoppingdetail-cart" bindtap="{{toCart}}"><text class="iconfont icon-jiarugouwuche"></text>加入购物车</view>
+    <view wx:if="{{displaydata.buynow}}" url="../cart/cart" class="purchase cart_bg_color" bindtap="{{toConfirm}}"><text class="iconfont icon-lijigoumai"></text>立即购买</view>
   </view>
   <view>
     <view class="mask" wx-if="{{currentState}}" bindtap="{{changState}}"></view>
