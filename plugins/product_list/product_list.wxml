@@ -21,6 +21,7 @@
             <block wx:for="{{prdintroArr}}" wx:for-index="idx" wx:key="{{idx}}" wx:for-item="intro"><template is="wxParse" data="{{wxParseData: intro}}" wx:if="{{index == idx}}" />
     </block>
             </view>
+            <text class="iconfont icon-jiarugouwuche"></text>
             <!--text class="iconfont icon-gouwuche"></text-->
         </view>
     </view>
