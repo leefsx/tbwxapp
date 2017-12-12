@@ -30,28 +30,28 @@
             <navigator url="../orders/orders?activeIndex=nopay">
                 <view class="state-image">
                     <text class="iconfont icon-daifukuan cart_color"></text>
-                    <view class="color">{{order_num_state.nopay_num}}</view>
+                    <view class="cart_color car_border">{{order_num_state.nopay_num}}</view>
                 </view>
                 <view class="state-tex">待付款</view>
             </navigator>
             <navigator url="../orders/orders?activeIndex=delivery">
                 <view class="state-image">
                     <text class="iconfont icon-fahuotixing cart_color"></text>
-                    <view class="color">{{order_num_state.hadpay_num}}</view>
+                    <view class="cart_color car_border">{{order_num_state.hadpay_num}}</view>
                 </view>
                 <view class="state-tex">待发货</view>
             </navigator>
             <navigator url="../orders/orders?activeIndex=getit">
                 <view class="state-image">
                     <text class="iconfont icon-daishouhuo cart_color"></text>
-                    <view class="color">{{order_num_state.delivery_num}}</view>
+                    <view class="cart_color car_border">{{order_num_state.delivery_num}}</view>
                 </view>
                 <view class="state-tex">待收货</view>
             </navigator>
             <navigator url="../orders/orders?activeIndex=rating">
                 <view class="state-image">
                     <text class="iconfont icon-daipingjia1 cart_color"></text>
-                    <view class="color">{{order_num_state.getit_num}}</view>
+                    <view class="cart_color car_border">{{order_num_state.getit_num}}</view>
                 </view>
                 <view class="state-tex">待评价</view>
             </navigator>

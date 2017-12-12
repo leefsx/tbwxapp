@@ -108,9 +108,7 @@
   text-align: center;
   color: #fff;
 }
-.cart-toatl-js{
-  background-color: #c71f3b;
-}
+
 .cart-no-data{
     padding:40rpx 0;
     color: #707070;

@@ -72,20 +72,7 @@
     line-height: 60rpx;
 }
 
-/* .orders-footer{
-    height: 60rpx;
-    line-height: 60rpx;
-    padding:15rpx 0rpx 15rpx 0;
-} 
-.orders-footer .orders-btn{
-    float: right;
-    width: 170rpx;
-    height: 60rpx;
-    line-height:60rpx;
-    border-radius: 6rpx;
-    text-align: center;
-    font-size: 26rpx;
-} */
+
 .order-status-content{
   width: 100%;
   height: 200rpx;
@@ -103,14 +90,13 @@
   margin-top: 20rpx;
 }
 .orders-footer .orders-btn{
-    /* float: right; */
     display: inline-block;
     margin-left: 10rpx;
     width: 200rpx;
     height: 80rpx;
     line-height:80rpx;
     border-radius: 6rpx;
-    background: #c71f3b;
+    /* background: #c71f3b; */
     color: #fff;
     text-align: center;
     font-size: 26rpx;

@@ -4,12 +4,12 @@
     height: 100%;
     font-size: 24rpx;
 }
-.cart_color{
+/* .cart_color{
   color: #c71f3b;
 }
 .cart_bg_color{
   background-color: #c71f3b;
-}
+} */
 
 .coupon-title{
     height: 100rpx;
@@ -32,10 +32,10 @@
     width: 33.3%;
     border-bottom: 6rpx solid transparent;
 }
-.coupon-nav view.active{
+/* .coupon-nav view.active{
     color: #c71f3b;
     border-bottom: 6rpx solid #c71f3b;
-}
+} */
 .coupon-box{
   padding: 20rpx 10rpx;
 }

@@ -11,7 +11,7 @@
     <textarea auto-height wx:else value="{{content}}" disabled="true" />
   </view>
   <view class="ratings-btn">
-    <button class="bg_color" wx:if="{{submit}}" bindtap='submit'>提交</button>
-    <button class="bg_color" wx:else >已评价</button>
+    <button class="cart_bg_color" wx:if="{{submit}}" bindtap='submit'>提交</button>
+    <button class="cart_bg_color" wx:else >已评价</button>
   </view>
 </view>

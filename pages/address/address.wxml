@@ -22,7 +22,7 @@
                 <text>设为默认：</text>
                 <switch checked="{{ address.is_def }}" bindchange="switchChange"/>
             </view>
-            <button form-type="submit" class="bg_color">保存</button><button bindtap="toBack">取消</button>
+            <button form-type="submit" class="cart_bg_color">保存</button><button bindtap="toBack">取消</button>
         </form>
     </view>
 
