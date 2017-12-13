@@ -15,7 +15,7 @@ const categoryConfig = {
             if (/^[1-9]\d*$/.test(pageid)) {
                 let catid = e.target.dataset.category_id;
                 let _url_ = '/pages/page'+pageid+'/page'+pageid;
-                wx.navigateTo({url: _url_+'?'+ctype+'_category='+catid})
+                wx.redirectTo({url: _url_+'?'+ctype+'_category='+catid})
             }
 		}
     },
