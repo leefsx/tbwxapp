@@ -81,9 +81,8 @@ const navigationConfig = {
       that.setData({datas: datas})
     },
     onHide () {
-      var state = this.data.navigationShow
       this.setData({
-        navigationShow: !state
+        navigationShow: false
       })
     }
 }

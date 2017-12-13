@@ -82,6 +82,7 @@ App({
       typeof params.success == "function" && params.success(res)
       if (!that.globalData.APISESSID && res.data.APISESSID) that.globalData.APISESSID = res.data.APISESSID;
     },
+    complete: params.complete || null,
     //params.success || null,
 		fail: params.fail || null
 	});
