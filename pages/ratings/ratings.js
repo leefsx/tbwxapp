@@ -69,7 +69,6 @@ Page({
                   wjxNum2[key] = 'icon-wujiaoxing'
                 }
               }
-              console.log(wjxNum2)
               that.setData({
                 content: res.data.content,
                 score: score,
