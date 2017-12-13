@@ -124,7 +124,7 @@
         <view style="height: 100rpx;"></view>
     </view>
   </view>
-  <view class="detail-foot" wx:if="{{displaydata.buynow || displaydata.addtocart}}">
+  <view class="detail-foot {{showBar?'has_bar':''}}" wx:if="{{displaydata.buynow || displaydata.addtocart}}">
     <view wx:if="{{displaydata.addtocart}}" url="../cart/cart" class="shoppingdetail-cart" bindtap="{{toCart}}"><text class="iconfont icon-jiarugouwuche"></text>加入购物车</view>
     <view wx:if="{{displaydata.buynow}}" url="../cart/cart" class="purchase cart_bg_color" bindtap="{{toConfirm}}"><text class="iconfont icon-lijigoumai"></text>立即购买</view>
   </view>

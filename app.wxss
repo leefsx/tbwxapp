@@ -74,6 +74,9 @@
 .tabBar .barList.on .icon{
   display: none;
 }
+.has_bar{
+  bottom: 100rpx !important;
+}
 
 
 

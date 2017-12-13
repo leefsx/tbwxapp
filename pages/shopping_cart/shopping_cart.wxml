@@ -23,7 +23,7 @@
             </view>
         </view>
 
-        <view class="cart-footer">
+        <view class="cart-footer {{showBar?'has_bar':''}}">
             <icon wx:if="{{selectAllStatus}}" type="success" color="#c71f3b" class="total-select" bindtap="selectAll"/>
             <icon wx:else type="circle" class="total-select" bindtap="selectAll"/>
             <text class="cart-toatl-tex fl" bindtap="selectAll">全选</text>
