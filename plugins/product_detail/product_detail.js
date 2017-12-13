@@ -274,18 +274,20 @@ const productDetailConfig = {
         }
     },
 	onLoad (option){
+    let app = getApp()
     wx.showLoading({
       title: '加载中',
       mask: true
     })
     this.setData({
-      detail:{},
+      detail: {},
+      carts: app.globalData.carts || [],
       displaydata: this.data.param.display
     })
 		// Parse 'node-style'
         this.parseStyle();
         // Load 'product-detail'
-        let app = getApp(), that = this, product_id = 0;
+        let that = this, product_id = 0;
         let dsval = that.data.param.data_source.value;
 		if (/^[1-9]\d*$/.test(option.product_id || 0)) {
 			product_id = option.product_id;
