@@ -10,28 +10,42 @@ Page({
             hidden: !0,
         },
         orders: [],
-        order_pro_rel: []
+        order_pro_rel: [],
+        pageid: 'orders/orders'
     },
     onLoad(options) {
-        if (options.activeIndex) {
-            var that = this;
-            that.setData({
-                activeIndex: options.activeIndex
-            })
-            var type = options.activeIndex
-            app.apiRequest('user', 'order_list',{
-              data: { type: type },
-              success: function (res) {
-                if (res.data.result == 'OK') {
-                  that.setData({
-                    "prompt.hidden": !!res.data.data,
-                    orders: res.data.data || [],
-                    order_pro_rel: res.data.order_pro_rel
-                  })
-                }
-              }
-            })
+        if (!options.activeIndex) {
+          options.activeIndex = 'all'
         }
+        var that = this;
+        that.setData({
+            activeIndex: options.activeIndex
+        })
+        var type = options.activeIndex
+        app.apiRequest('user', 'order_list',{
+          data: { type: type },
+          success: function (res) {
+            if (res.data.result == 'OK') {
+              that.setData({
+                "prompt.hidden": !!res.data.data,
+                orders: res.data.data || [],
+                order_pro_rel: res.data.order_pro_rel
+              })
+            }
+          }
+        })
+        let curpage = this.data.pageid;
+        let tabs = getApp().globalData.config.tabBar || {};
+        if (tabs.list) {
+          this.setData({ tabs });
+          let _has_ = tabs.list.findIndex((c) => {
+            return c.pagePath == curpage
+          });
+          this.setData({
+            showBar: _has_ > -1 ? true : false
+          })
+        }
+        
     },
     // 取消订单
     cancelOrders(e){
@@ -53,7 +67,7 @@ Page({
                     title: '操作成功'
                   })
                   wx.redirectTo({
-                    url: '../order-list/order-list?activeIndex=' + activeIndex
+                    url: '../orders/orders?activeIndex=' + activeIndex
                   })
                 } else {
                   wx.showToast({
@@ -292,6 +306,10 @@ Page({
           duration: 5000
         })
       }
+    },
+    switchTab: function (e) {
+      let url = e.currentTarget.dataset.url;
+      getApp().turnToPage(url, true)
     }
     
 })

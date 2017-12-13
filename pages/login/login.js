@@ -46,7 +46,7 @@ Page({
           app.globalData.APISESSID = res.data.APISESSID;
           app.globalData.hadlogin = true
           wx.switchTab({
-            url: `../user_new/user_new`
+            url: `../ucenter/ucenter`
           })
         }else{
           wx.showToast({

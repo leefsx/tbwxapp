@@ -295,7 +295,7 @@ Page({
             success: function (res) {
               if (res.data.result == 'OK') {
                 wx.redirectTo({
-                  url: '../order-list/order-list?activeIndex=all'
+                  url: '../orders/orders?activeIndex=all'
                 })
               } else {
                 wx.showToast({
