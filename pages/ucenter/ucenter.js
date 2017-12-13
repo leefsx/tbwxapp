@@ -12,10 +12,11 @@ Page({
     order_pro_rel:[],
     userInfo: [],
     cuserInfo: [],
-    cartleng: 0
+    cartleng: 0,
+    pageid: 'ucenter/ucenter'
   },
   goToCart(){
-    wx.switchTab({
+    wx.navigateTo({
       url: "../cart/cart",
     })
   },
@@ -30,8 +31,7 @@ Page({
         data: {
           openid: openid,
           nickName: uinfo.nickName || '',
-          avatarUrl: uinfo.avatarUrl || '',
-          insidepage_themecolor: config.insidepage_themecolor || '#c71f3b'
+          avatarUrl: uinfo.avatarUrl || ''
         },
         method: 'GET',
         success: function (res) {
@@ -69,7 +69,17 @@ Page({
           } 
         }
       })
-
+      let curpage = this.data.pageid;
+      let tabs = getApp().globalData.config.tabBar || {};
+      if (tabs.list) {
+        this.setData({ tabs });
+        let _has_ = tabs.list.findIndex((c) => {
+          return c.pagePath == curpage
+        });
+        this.setData({
+          showBar: _has_ > -1 ? true : false
+        })
+      }
     } else {
       wx.navigateTo({
         url: '../login/login'
@@ -130,8 +140,12 @@ Page({
     wx.stopPullDownRefresh()
   },
   toCart(e){
-    wx.switchTab({
-      url: '../cart/cart',
+    wx.navigateTo({
+      url: '../shopping_cart/shopping_cart',
     })
+  },
+  switchTab: function (e) {
+    let url = e.currentTarget.dataset.url;
+    getApp().turnToPage(url, true)
   }
 })

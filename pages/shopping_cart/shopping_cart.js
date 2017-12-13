@@ -20,6 +20,7 @@ Page({
         },
       ],
     },
+    pageid: 'shopping_cart/shopping_cart'
   },
   bindtap(){
     wx.switchTab({
@@ -45,6 +46,17 @@ Page({
       this.setData({
         'prompt.hidden': false
       });
+    }
+    let curpage = this.data.pageid;
+    let tabs = getApp().globalData.config.tabBar || {};
+    if (tabs.list) {
+      this.setData({ tabs });
+      let _has_ = tabs.list.findIndex((c) => {
+        return c.pagePath == curpage
+      });
+      this.setData({
+        showBar: _has_ > -1 ? true : false
+      })
     }
     wx.hideLoading()
   },
@@ -269,6 +281,10 @@ Page({
   onPullDownRefresh: function () {
     this.onShow()
     wx.stopPullDownRefresh()
+  },
+  switchTab: function (e) {
+    let url = e.currentTarget.dataset.url;
+    getApp().turnToPage(url, true)
   }
 
 })
