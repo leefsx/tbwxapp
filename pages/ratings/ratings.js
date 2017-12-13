@@ -156,7 +156,7 @@ Page({
         success: function (res) {
           if (res.data.result == 'OK') {
             wx.redirectTo({
-              url: '../order-list/order-list?activeIndex=all',
+              url: '../orders/orders?activeIndex=all',
             })
           } else {
             var res = res.data.errmsg || '请求失败'

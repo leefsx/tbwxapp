@@ -53,7 +53,7 @@ Page({
                     title: '操作成功'
                   })
                   wx.redirectTo({
-                    url: '../order-list/order-list?activeIndex=' + activeIndex
+                    url: '../orders/orders?activeIndex=' + activeIndex
                   })
                 } else {
                   wx.showToast({

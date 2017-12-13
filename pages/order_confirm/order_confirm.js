@@ -524,7 +524,7 @@ Page({
   onShow: function () {
     if (typeof (this.options.fr) =='undefined'){
       wx.switchTab({
-        url: '../user_new/user_new',
+        url: '../ucenter/ucenter',
       })
     }
     let start_date=util.formatTime2(new Date);
