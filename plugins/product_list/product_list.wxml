@@ -3,7 +3,7 @@
 <view class="product-list" wx:if="{{products.length}}">
   <view wx:if="{{param.display.search}}" class="product-list-nav">
     <view wx:for="{{searchBar}}" wx:key="{{index}}" class="{{(barIdx == item.type)?'active':''}} nav-item">
-      <view class="title" bindtap="{{resortBy}}" data-sortidx="{{index}}">{{item.alias}}</view>
+      <view class="product_list_title" bindtap="{{resortBy}}" data-sortidx="{{index}}">{{item.alias}}</view>
       <view class="operate" wx:if="{{item.type != 'default'}}">
         <text class="{{(item.value == 'desc')?'on':''}} iconfont icon-shangxiajiantou1"></text>
         <text class="{{(item.value == 'asc')?'on':''}} iconfont icon-shangxiajiantou"></text>

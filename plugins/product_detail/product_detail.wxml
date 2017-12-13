@@ -10,7 +10,7 @@
     </swiper>
   </view>
   <view class="product-detail-middle">
-    <view wx:if="{{param.display.title}}" class="title" style="{{styles.title}}">{{detail.title}}</view>
+    <view wx:if="{{param.display.title}}" class="product-detail_title" style="{{styles.title}}">{{detail.title}}</view>
     <view wx:if="{{param.display.intro}}" class="tooLong3 content">
     <template is="wxParse" data="{{wxParseData: prdintro.nodes}}"/>
     </view>

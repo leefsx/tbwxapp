@@ -20,9 +20,11 @@
   justify-content: space-around;
   align-items: center;
 }
-.title{
+.product_list_title{
   height: 80rpx;
   line-height: 80rpx;
+  font-size:28rpx;
+  color:#535353;  
 }
 .list_title{
   line-height: 80rpx !important;
