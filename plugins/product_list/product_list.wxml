@@ -17,9 +17,12 @@
             <view wx:if="{{param.display.title}}" style="{{styles.title}}">{{item.title}}</view>
             <view wx:if="{{param.display.price}}" class="last_price" style="{{styles.price}}">￥{{item.discount_price}}</view>
             <view wx:if="{{param.display.market_price}}" style="{{styles.market_price}}">市场价：￥{{item.price}}</view>
-            <view class="desc tooLong" wx:if="{{param.display.desc && item.intro.length && item.intro != 'WxParsePlaceHolder'}}">
-            <block wx:for="{{prdintroArr}}" wx:for-index="idx" wx:key="{{idx}}" wx:for-item="intro"><template is="wxParse" data="{{wxParseData: intro}}" wx:if="{{index == idx}}" />
-    </block>
+            <view class="desc tooLong" wx:if="{{param.display.desc}}">
+              <view wx:if="{{param.display.desc && item.intro.length && item.intro != 'WxParsePlaceHolder'}}">
+                <block  wx:for="{{prdintroArr}}" wx:for-index="idx" wx:key="{{idx}}" wx:for-item="intro">
+                  <template is="wxParse" data="{{wxParseData: intro}}" wx:if="{{index == idx}}" />
+                </block>
+              </view>
             </view>
             <text class="iconfont icon-jiarugouwuche"></text>
             <!--text class="iconfont icon-gouwuche"></text-->

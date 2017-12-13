@@ -23,7 +23,7 @@
   align-items: flex-start;
   width: 100%;
   box-sizing: border-box;
-  height: 150rpx;
+  height: 100%;
 }
 .list-li-title{
   font-size: 28rpx;
@@ -37,7 +37,10 @@
   line-height: 36rpx;
 	width: 100%;
 }
-
+.list-li-info .iconfont{
+  display: inline-block;
+  margin-right: 10rpx;
+}
 .list-btn{
   width: 95%;
   height: 70rpx;

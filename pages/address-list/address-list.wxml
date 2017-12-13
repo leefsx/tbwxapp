@@ -14,12 +14,12 @@
                     <view class="edit">
                         <view bindtap="toAddressEdit" data-id="{{ item.id }}">
                             <text class="small_font color2">编辑:</text>
-                            <text class="iconfont icon-edit"></text>
+                            <text class="iconfont icon-edit color2"></text>
                             <!-- <image class="icon" src="../../../image/iconfont-edit.png" /> -->
                         </view>
                         <view bindtap="cancelAddress" data-id="{{ item.id }}">
                             <text class="small_font color2">删除:</text>
-                            <text class="iconfont icon-shanchu"></text>
+                            <text class="iconfont icon-shanchu color2"></text>
                             <!-- <image class="icon" src="../../../image/iconfont-cancel.png" /> -->
                         </view>
                         

@@ -52,6 +52,7 @@ Page({
             app.apiRequest('user', 'order_list',{
               data: [],
               success: function (res) {
+                console.log(res.data.order_num_state)
                 if (res.data.result == 'OK') {
                   self.setData({
                     cartleng: app.globalData.carts.length,

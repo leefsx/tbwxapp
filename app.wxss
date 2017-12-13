@@ -80,40 +80,38 @@
 
 /* 内页主题设置 */
 .cart_color{
-  color: #c71f3b;
+  color: #c71f3b !important;
 }
 .cart_bg_color{
-  background-color: #c71f3b;
+  background-color: #c71f3b !important;
 }
 .cart_bg_color2{
-  background-color: #c71f3b;
-  color: #fff;
+  background-color: #c71f3b !important;
+  color: #fff !important;
 }
 .cart_bor_color{
-  border-color: #c71f3b;
+  border-color: #c71f3b !important;
 }
 .car_border{
-  border: 1rpx solid  #c71f3b;
+  border: 1rpx solid  #c71f3b !important;
 }
 .cart-toatl-js{
   background-color: #c71f3b !important;
 }
 .pay_way image.active{
-  border: 1rpx solid #c71f3b;
+  border: 1rpx solid #c71f3b !important;
 }
 .pay_way image.active::after{
-background-color: #c71f3b;
+background-color: #c71f3b !important;
 }
 .my-list-nav view.active{
-  color: #c71f3b ;
-  border-bottom: 6rpx solid #c71f3b;
+  color: #c71f3b !important;
+  border-bottom: 6rpx solid #c71f3b !important;
 }
 .coupon-nav view.active{
-  color: #c71f3b;
-  border-bottom: 6rpx solid #c71f3b;
+  color: #c71f3b !important;
+  border-bottom: 6rpx solid #c71f3b !important;
 }
-
-
 
 
 .icon-wujiaoxing{

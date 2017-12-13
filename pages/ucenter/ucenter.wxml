@@ -59,12 +59,12 @@
     </view>
     <view class="address-box">
         <view class="address-manage">
-            <navigator url="../address-list/address-list">地址管理</navigator>
+            <navigator url="../coupon/coupon">优惠券</navigator>
         </view>
     </view>
     <view class="address-box">
         <view class="address-manage">
-            <navigator url="../coupon/coupon">优惠券</navigator>
+            <navigator url="../address-list/address-list">地址管理</navigator>
         </view>
     </view>
 </view>

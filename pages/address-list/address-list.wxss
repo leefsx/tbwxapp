@@ -29,10 +29,12 @@
 .address-list .edit view:first-child{
 	margin-right: 20rpx;
 }
-.address-list .edit .icon {
-    width: 40rpx; 
-    height: 40rpx;
-	vertical-align: top;
+.address-list .edit .iconfont {
+    /* width: 40rpx; 
+    height: 40rpx; */
+	  vertical-align: top;
+    font-size: 30rpx;
+
 }
 .weui-media-box__det{
 	line-height: 70rpx;
