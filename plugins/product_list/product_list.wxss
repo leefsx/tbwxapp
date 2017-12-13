@@ -250,3 +250,5 @@
   text-align: center;
   border-radius: 8rpx;
 }
+
+.bg_color{background-color: #c71f3b;color:#fff;}
