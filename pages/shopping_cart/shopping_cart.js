@@ -1,4 +1,5 @@
 var comm = require('../../wxParse/common.js');
+var config = require('../../static/config.js');
 var app = getApp()
 Page({
   data: {
@@ -8,6 +9,7 @@ Page({
     selectAllStatus:'',    // 全选状态，默认全选
     jsStatus: false,
     totleNum: 0,
+    insidepage_themecolor: '#c71f3b',
     prompt: {
       hidden: false,
       icon: '../../../image/asset-img/iconfont-cart-empty.png',
@@ -30,7 +32,8 @@ Page({
   onShow() {
     var openid = wx.getStorageSync('openid');
     this.setData({
-      foods: app.globalData.carts
+      foods: app.globalData.carts,
+      insidepage_themecolor: config.insidepage_themecolor
     })
     if (app.globalData.carts.length){
       var cart_num = app.globalData.carts.length
