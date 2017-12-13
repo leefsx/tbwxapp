@@ -274,7 +274,12 @@ const productDetailConfig = {
         }
     },
 	onLoad (option){
+    wx.showLoading({
+      title: '加载中',
+      mask: true
+    })
     this.setData({
+      detail:{},
       displaydata: this.data.param.display
     })
 		// Parse 'node-style'
@@ -293,6 +298,7 @@ const productDetailConfig = {
                 let detail = res.data.data || {};
 				if ('ERROR' == res.data.result || '') {
 					that.setData({detail: {"errmsg": res.data.errmsg}});
+					wx.hideLoading()
 					return false
 				}
         that.setData({
@@ -317,7 +323,11 @@ const productDetailConfig = {
                     WxParse.wxParse('prdesc' + i, 'html', vobj.desc, that)
                 }
                 that.setData({desctitle});
+				wx.hideLoading()
                 WxParse.wxParseTemArray("prdescArr", 'prdesc', parseInt(i) + 1, that)
+            },
+            complete: function () {
+              wx.hideLoading()
             },
             fail (){
                 that.setData({

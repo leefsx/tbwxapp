@@ -63,6 +63,9 @@ Page({
     var types = ''
     var methodname = 'events_coupons'
     var id = ''
+    that.setData({
+      coupons: {}
+    })
     if (activeIndex){
       var id = activeIndex
     }else{

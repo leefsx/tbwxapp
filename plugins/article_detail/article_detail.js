@@ -28,6 +28,14 @@ const articleDetailConfig = {
         }
     },
 	onLoad (option){
+		wx.showLoading({
+			title: '加载中',
+			mask: true
+		})
+		this.setData({
+			detail: {},
+			artdetail: ''
+		})
 		// Parse 'node-style'
         this.parseStyle();
         // Load 'article-detail'
@@ -44,11 +52,16 @@ const articleDetailConfig = {
                 let detail = res.data.data || {};
 				if ('ERROR' == res.data.result || '') {
 					that.setData({detail: {"errmsg": res.data.errmsg}});
+					wx.hideLoading()
 					return false
 				}
                 detail.publish_time = app.toLocalTime(detail.publish_time);
                 that.setData({detail});
+				wx.hideLoading()
 				WxParse.wxParse('artdetail', 'html', detail.content, that, 5)
+            },
+            complete: function () {
+              wx.hideLoading()
             },
             fail (){
                 that.setData({

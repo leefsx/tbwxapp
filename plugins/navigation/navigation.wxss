@@ -38,6 +38,8 @@
   max-height: 60%;
   animation: action 1s;
   animation-fill-mode: both;
+  max-height: 60%;
+  overflow-y: auto;
 }
 .navigation-item{
   padding: 0 10px;
