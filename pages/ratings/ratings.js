@@ -60,19 +60,20 @@ Page({
           if (res.data.result == 'OK') {
             var score = parseInt(res.data.score)
             if(score>0){
-              let wjxNum = that.data.wjxNum;
-              for (let key in wjxNum) {
-                wjxNum[key] = '/image/wjx.png'
+              let wjxNum2 = that.data.wjxNum2;
+              for (let key in wjxNum2) {
+                wjxNum2[key] = 'icon-wujiaoxing2'
               }
-              for (let key in wjxNum) {
-                if (key <= score) {
-                  wjxNum[key] = '/image/wjx-select.png'
+              for (let key in wjxNum2) {
+                if (key < score) {
+                  wjxNum2[key] = 'icon-wujiaoxing'
                 }
               }
+              console.log(wjxNum2)
               that.setData({
                 content: res.data.content,
                 score: score,
-                wjxNum: wjxNum,
+                wjxNum2: wjxNum2,
                 submit: false
               })
             }
