@@ -107,7 +107,9 @@ App({
 			if (/^\d+$/.test(fvalue)) {
 				let _url = 'page' + fvalue;
 				this.turnToPage(_url + '/' + _url)
-			}
+      } else {
+        this.turnToPage(fvalue + '/' + fvalue)
+      }
 			break;
 	}
   },
