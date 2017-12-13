@@ -79,6 +79,12 @@ const navigationConfig = {
       let datas = that.data.param.items;
       that.setData({ src: src })
       that.setData({datas: datas})
+    },
+    onHide () {
+      var state = this.data.navigationShow
+      this.setData({
+        navigationShow: !state
+      })
     }
 }
 module.exports = wech(navigationConfig)
