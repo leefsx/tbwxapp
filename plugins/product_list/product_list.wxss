@@ -117,10 +117,17 @@
     animation: action 1s;
     animation-fill-mode: forwards; 
 }
+.dig_special{
+  animation: action2 1s;
+  animation-fill-mode: both; 
+}
   @keyframes action{
-  /* 0%{bottom:-816rpx;} */
   0%{bottom:-100%;}
   100%{bottom:0rpx;}
+}
+  @keyframes action2{
+  0%{bottom:-100%;}
+  100%{bottom:100rpx;}
 }
 .detail-cart-box{
   padding: 20rpx 20rpx 40rpx 20rpx;

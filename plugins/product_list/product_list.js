@@ -355,7 +355,8 @@ const productListConfig = {
         // Load 'product-list'
         this.loadProducts(option)
         this.setData({
-          carts: app.globalData.carts || []
+          carts: app.globalData.carts || [],
+          showBar: this.$this.data.showBar
         })
     },
     initCart() {

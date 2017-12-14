@@ -33,8 +33,8 @@
   <!-- 商品属性弹窗--开始 -->
   <view>
     <view class="mask" wx-if="{{currentState}}"></view>
-    <view class="dig" wx-if="{{currentState}}">
-      <view class="detail-cart-box" style="padding-bottom:0px;">
+    <view class="dig {{showBar ? 'dig_special' : ''}}" wx-if="{{currentState}}">
+      <view class="detail-cart-box" style="padding-bottom:20rpx;">
         <view class="detail-cart-list">
           <view class="detail-cart-list-top">
             <image class="detail-cart-thumb" src="{{detail_data.feature_img}}" mode="aspectFit" />

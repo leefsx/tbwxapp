@@ -112,7 +112,7 @@
   </view>
   <view class="specifications" wx:if="{{digShow}}">
     <view class="mask"></view>
-    <view class="specifications-dig parameters">
+    <view class="specifications-dig parameters {{showBar?'dig_detail-special':''}}">
         <text class="iconfont icon-chuyidong specifications-close" bindtap="{{changeDigShow}}"></text>
         <view class="parameters-title">产品参数</view>
         <view class="parameter-ul">
@@ -130,8 +130,8 @@
   </view>
   <view>
     <view class="mask" wx-if="{{currentState}}" bindtap="{{changState}}"></view>
-    <view class="dig" wx-if="{{currentState}}">
-      <view class="detail-cart-box">
+    <view class="dig  {{showBar?'dig_detail-special':''}}" wx-if="{{currentState}}">
+      <view class="detail-cart-box" style="padding-bottom: 20rpx;">
         <view class="detail-cart-list">
           <view class="detail-cart-list-top">
             <image class="detail-cart-thumb" src="{{detail.pics[0].origin}}" mode="aspectFit" />

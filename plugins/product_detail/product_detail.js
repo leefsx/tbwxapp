@@ -284,6 +284,9 @@ const productDetailConfig = {
       carts: app.globalData.carts || [],
       displaydata: this.data.param.display
     })
+    this.setData({
+      showBar: this.$this.data.showBar
+    })
 		// Parse 'node-style'
         this.parseStyle();
         // Load 'product-detail'

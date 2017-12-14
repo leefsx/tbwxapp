@@ -142,10 +142,10 @@
 .parameter-li-right{
   flex: 3;   
 }
-@keyframes action{
+/* @keyframes action{
     0%{bottom:-100%;}
     100%{bottom:0rpx;}
-}                        
+}                         */
 .wxParse-container image{
   max-width: 100% !important;
 }
@@ -235,6 +235,14 @@
   @keyframes action{
   0%{bottom:-100%;}
   100%{bottom:100rpx;}
+}
+.dig_detail-special{
+  animation: action3 1s;
+  animation-fill-mode: both; 
+}
+  @keyframes action3{
+  0%{bottom:-100%;}
+  100%{bottom:200rpx;}
 }
 .detail-cart-box{
   padding: 20rpx 20rpx 40rpx 20rpx;
