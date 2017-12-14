@@ -13,7 +13,7 @@
           </view>
           <view>
             <text>￥{{cuserInfo.account_money}}</text>
-            <text bindtap="toCart">余额</text>
+            <text>余额</text>
           </view>
         </view>
         <!-- <text class="iconfont icon-fanhui1 page_back"></text> -->
