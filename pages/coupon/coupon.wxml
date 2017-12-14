@@ -19,8 +19,9 @@
         <!-- <view class="coupon-list-deadline">{{item.start_time}}~{{item.stop_time}}</view> -->
         <view class="coupon-list-deadline">有效期至：{{item.stop_time}}</view>
         <view class="coupon-status all cart_bg_color" data-id="{{item.id}}" wx:if="{{item.receive_num > 0 && item.receive_num > item.take_num && activeIndex =='all'}}" bindtap="get_coupons" >立即领取</view>
+        <view class="coupon-status" wx:elif="{{activeIndex =='all'}}">已领取({{item.take_num}})</view>
         <view class="coupon-status overdue" wx:elif="{{activeIndex =='overdue'}}">已过期</view>
-        <view class="coupon-status" wx:elif="{{item.take_num > 0 || activeIndex =='nouse'}}">未使用({{item.take_num}})</view>
+        <view class="coupon-status" wx:elif="{{item.take_num > 0 && activeIndex =='nouse'}}">未使用</view>
         <view class="coupon-status" wx:elif="{{activeIndex =='hasuse'}}">已使用</view>
       </view>
     </view>
