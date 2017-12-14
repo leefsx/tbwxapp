@@ -59,7 +59,7 @@
               </view>
             </view>
             <view wx:else class="no_resault">暂无信息</view>
-				    <view class="ratings-tip">总共<text class="color">{{tradeRate.length}}</text>条数据</view>
+				    <view class="ratings-tip">总共<text class="cart_color">{{tradeRate.length}}</text>条数据</view>
           </view>
 
           <view wx:if="{{tabIdx == 'detail_recoding' && displaydata.purchase_record}}">
@@ -86,7 +86,7 @@
                   </view>
                 </block>
               </view>
-              <text class="good-rating-last">总共<text class="color">{{salesRecords.length}}</text>条记录</text>
+              <text class="good-rating-last">总共<text class="cart_color">{{salesRecords.length}}</text>条记录</text>
             </view>
           </view>
           <view wx:if="{{tabIdx == 'qANDa' && displaydata.buyer_faq}}">
@@ -101,7 +101,7 @@
               </view>
             </view>
             <view class="no_resault" wx:else>暂无信息</view>
-            <view class="ratings-tip">总共<span class="color">{{productMessage.length}}</span>条数据</view>
+            <view class="ratings-tip">总共<span class="cart_color">{{productMessage.length}}</span>条数据</view>
           </view>
         </view>
     </view>
@@ -137,7 +137,7 @@
             <image class="detail-cart-thumb" src="{{detail.pics[0].origin}}" mode="aspectFit" />
             <view>
               <text class="detail-cart-pro-name tooLong">{{detail.name}}</text>
-              <text class="detail-cart-pro-price color small_font">价格：<text>{{detail.price}}</text></text>
+              <text class="detail-cart-pro-price cart_color small_font">价格：<text>{{detail.price}}</text></text>
             </view>
             <icon class="digClose" size="23" type="cancel" color="#aaa" bindtap="{{changState}}"></icon>
           </view>

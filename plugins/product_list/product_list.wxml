@@ -40,7 +40,7 @@
             <image class="detail-cart-thumb" src="{{detail_data.feature_img}}" mode="aspectFit" />
             <view>
               <text class="detail-cart-pro-name tooLong">{{detail_data.name}}</text>
-              <text class="detail-cart-pro-price color small_font">价格：<text>{{detail_data.price}}</text></text>
+              <text class="detail-cart-pro-price cart_color small_font">价格：<text>{{detail_data.price}}</text></text>
             </view>
             <icon class="digClose" size="23" type="cancel" color="#aaa" bindtap="{{changState}}"></icon>
           </view>

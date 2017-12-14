@@ -29,12 +29,7 @@
 .list_title{
   line-height: 80rpx !important;
 }
-.nav-item.active{
-  border-color: #88bd79;
-}
-.nav-item.active .title{
-  color: #88bd79;
-}
+
 .operate{
   height: 80rpx;
   padding: 25rpx 0 20rpx 0;
@@ -47,9 +42,7 @@
 .operate text{
   line-height: 20rpx;
 }
-.nav-item.active .operate text.on{
-  color: #88bd79;
-}
+
 
 .product-list-content{
   padding: 20rpx 10rpx;
@@ -238,10 +231,10 @@
   margin-bottom: 10rpx;
   border-radius: 10rpx;
 }
-.property-list-li text.active{
+/* .property-list-li text.active{
   color:#fff;
   background-color:#c71f3b;
-}
+} */
 .property-list-li text.disable{
   color:#9a9a9a;
 }

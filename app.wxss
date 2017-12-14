@@ -116,7 +116,28 @@ background-color: #c71f3b !important;
   border-bottom: 6rpx solid #c71f3b !important;
 }
 
-
 .icon-wujiaoxing{
+  color: #c71f3b !important;
+}
+
+
+
+
+/* 产品详情及列表主题定制 */
+.detail-container-simple-title-list.on{
+  color: #c71f3b !important;
+  border-color: #c71f3b !important;
+}
+.property-list-li text.active{
+  color:#fff;
+  background-color:#c71f3b !important;
+}
+.nav-item.active{
+  border-color: #c71f3b !important;
+}
+.nav-item.active .title{
+  color: #c71f3b !important;
+}
+.nav-item.active .operate text.on{
   color: #c71f3b !important;
 }

@@ -1,10 +1,5 @@
 @import "/wxParse/wxParse.wxss";
-.cart_color{
-  color: #c71f3b;
-}
-.cart_bg_color{
-  background-color: #c71f3b;
-}
+
 .product-detail{
   width: 100%;
   height: 100%;
@@ -73,10 +68,7 @@
   flex: 1;
   border-bottom: 1rpx solid transparent;
 }
-.detail-container-simple-title-list.on{
-  color: #88bd79;
-  border-color: #88bd79;
-}
+
 .detail-container-simple-details{
   margin-top: 15rpx;
   min-height: 100rpx;
@@ -345,10 +337,7 @@
   margin-bottom: 10rpx;
   border-radius: 10rpx;
 }
-.property-list-li text.active{
-  color:#fff;
-  background-color:#c71f3b;
-}
+
 .property-list-li text.disable{
   color:#9a9a9a;
 }
