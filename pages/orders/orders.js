@@ -145,7 +145,7 @@ Page({
     buyAgain(e) {
       var oid = oid = e.currentTarget.dataset.oid;
       if (oid) {
-        wx.navigateTo({
+        wx.redirectTo({
           url: '../details/details?oid=' + oid,
         })
       } else {

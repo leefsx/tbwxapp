@@ -65,7 +65,7 @@ function pay(param) {
     },
     complete: function () {
       // complete  
-      wx.navigateTo({
+      wx.redirectTo({
         url: '../order_detail/order_detail?oid=' + param.oid,
       })
     }

@@ -141,7 +141,7 @@ const productDetailConfig = {
               carts.push(send_data)
             }
             app.globalData.carts = carts
-            wx.navigateTo({
+            wx.redirectTo({
               url: '../shopping_cart/shopping_cart',
             })
           }
@@ -210,7 +210,7 @@ const productDetailConfig = {
                 } else {
                   app.globalData.dcarts = carts
                   wx.hideLoading()
-                  wx.navigateTo({
+                  wx.redirectTo({
                     url: '../order_confirm/order_confirm?fr=buy'
                   })
                 }

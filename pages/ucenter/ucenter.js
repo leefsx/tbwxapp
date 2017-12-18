@@ -141,7 +141,7 @@ Page({
     wx.stopPullDownRefresh()
   },
   toCart(e){
-    wx.navigateTo({
+    wx.redirectTo({
       url: '../shopping_cart/shopping_cart',
     })
   },

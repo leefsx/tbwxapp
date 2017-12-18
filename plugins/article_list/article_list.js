@@ -14,7 +14,7 @@ const articleListConfig = {
             if (/^[1-9]\d*$/.test(pageid)) {
                 let artid = e.currentTarget.dataset.articleid;
                 let _url_ = '/pages/page'+pageid+'/page'+pageid;
-                wx.navigateTo({url: _url_+'?article_id='+artid})
+                wx.redirectTo({url: _url_+'?article_id='+artid})
             }
         },
 		loadMore (){
