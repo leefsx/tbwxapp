@@ -248,7 +248,7 @@ const productDetailConfig = {
           this.setData({
             propertys: propertys,
             attr_data: attr_data,
-            detail_data: detail_data
+            detail: detail_data
           })
         }
     },
