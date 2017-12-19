@@ -81,7 +81,9 @@
 .delivery_addr-no-list{
   position: relative;
   height: 120rpx;
-  padding: 35rpx 20rpx 35rpx 170rpx;
+  padding: 35rpx 20rpx 35rpx 30rpx;
+  box-sizing: border-box;
+  width: 100%;
 }
 .delivery_addr-no-list image {
     position: absolute;
