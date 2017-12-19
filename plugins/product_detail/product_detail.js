@@ -210,7 +210,7 @@ const productDetailConfig = {
                 } else {
                   app.globalData.dcarts = carts
                   wx.hideLoading()
-                  wx.redirectTo({
+                  wx.navigateTo({
                     url: '../order_confirm/order_confirm?fr=buy'
                   })
                 }
