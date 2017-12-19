@@ -37,7 +37,7 @@ const productListConfig = {
             if (/^[1-9]\d*$/.test(pageid)) {
                 let prdid = e.currentTarget.dataset.productid;
                 let _url_ = '/pages/page'+pageid+'/page'+pageid;
-                wx.redirectTo({url: _url_+'?product_id='+prdid})
+                wx.navigateTo({url: _url_+'?product_id='+prdid})
             }
         },
         resortBy (e){
