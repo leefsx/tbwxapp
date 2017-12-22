@@ -14,38 +14,43 @@ Page({
         pageid: 'orders/orders'
     },
     onLoad(options) {
-        if (!options.activeIndex) {
-          options.activeIndex = 'all'
-        }
-        var that = this;
-        that.setData({
-            activeIndex: options.activeIndex
-        })
-        var type = options.activeIndex
-        app.apiRequest('user', 'order_list',{
-          data: { type: type },
-          success: function (res) {
-            if (res.data.result == 'OK') {
-              that.setData({
-                "prompt.hidden": !!res.data.data,
-                orders: res.data.data || [],
-                order_pro_rel: res.data.order_pro_rel
-              })
-            }
+      if (!options.activeIndex) {
+        options.activeIndex = 'all'
+      }
+      this.setData({
+        activeIndex: options.activeIndex
+      })
+    },
+    onShow(){
+      var that = this;
+      var type = that.data.activeIndex
+      app.apiRequest('user', 'order_list', {
+        data: { type: type },
+        success: function (res) {
+          if (res.data.result == 'OK') {
+            that.setData({
+              "prompt.hidden": !!res.data.data,
+              orders: res.data.data || [],
+              order_pro_rel: res.data.order_pro_rel
+            })
+          } else if (res.data.errmsg == '2') {
+            wx.navigateTo({
+              url: '../login/login'
+            })
           }
-        })
-        let curpage = this.data.pageid;
-        let tabs = getApp().globalData.config.tabBar || {};
-        if (tabs.list) {
-          this.setData({ tabs });
-          let _has_ = tabs.list.findIndex((c) => {
-            return c.pagePath == curpage
-          });
-          this.setData({
-            showBar: _has_ > -1 ? true : false
-          })
         }
-        
+      })
+      let curpage = this.data.pageid;
+      let tabs = getApp().globalData.config.tabBar || {};
+      if (tabs.list) {
+        this.setData({ tabs });
+        let _has_ = tabs.list.findIndex((c) => {
+          return c.pagePath == curpage
+        });
+        this.setData({
+          showBar: _has_ > -1 ? true : false
+        })
+      }
     },
     // 取消订单
     cancelOrders(e){
