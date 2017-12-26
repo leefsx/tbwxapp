@@ -3,7 +3,10 @@
     <view class="article-list-container">
         <view class="article-list-ul">
             <view wx:for="{{articles}}" bindtap="{{navigateToDetail}}" data-articleid="{{item.id}}" wx:key="{{item.id}}" class="article-list-li clearFix" style="{{styles.linode}}">
-                <image wx:if="{{param.display.thumb}}" src="{{item.doc_image}}" style="{{styles.thumb}}"></image>
+                <!-- <image wx:if="{{param.display.thumb}}" src="{{item.doc_image}}" style="{{styles.thumb}}"></image> -->
+                <view wx:if="{{param.display.thumb}}" class="article-list-li-img" style="{{styles.thumb}}">
+                  <image src="{{item.doc_image}}" style="width: 100%;height: 100%;"></image>
+                </view>
                 <view class="list-li-content">
                     <view class="list-li-title">
                         <text wx:if="{{param.display.category}}" class="cate_title color" style="{{styles.category}}">[{{item.category_name}}]</text><text wx:if="{{param.display.title}}" style="{{styles.title}}">{{item.title}}</text>

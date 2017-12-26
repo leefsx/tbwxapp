@@ -45,7 +45,7 @@
 }
 .tabBar .barList{
   flex: 1;
-  height: 100rpx;
+  height: 99rpx;
   display: inline-block;
   text-align: center;
   cursor: pointer;
