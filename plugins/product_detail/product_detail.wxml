@@ -3,7 +3,7 @@
 <view class="product-detail">
   <block wx:if="{{! detail.errmsg}}">
   <view class="product-detail-top">
-    <swiper indicator-dots="true" autoplay="true">
+    <swiper indicator-dots="true" autoplay="true" style="{{styles.thumb}}">
       <swiper-item wx:for="{{detail.pics}}" wx:key="{{index}}">
         <image src="{{item.origin}}" mode="aspectFit" />
       </swiper-item>
