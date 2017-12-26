@@ -4,7 +4,7 @@ const navigationConfig = {
       navigationShow: false,
       navigations: [],
       styles: {},
-      errmsg: '未找到匹配数据'
+      errmsg: ''
     },
     events: {
       navigateToList (e){

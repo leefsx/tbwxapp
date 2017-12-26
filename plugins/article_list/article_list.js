@@ -6,7 +6,7 @@ const articleListConfig = {
         styles: {},
 		pagerid: 1,
 		pagerShow: true,
-		errmsg: '未找到匹配数据'
+		errmsg: ''
     },
 	events: {
         navigateToDetail (e){
@@ -91,7 +91,8 @@ const articleListConfig = {
 	onLoad (option){
 		// Parse 'node-style'
         this.parseStyle();
-        // Load 'article-list'
+		// Load 'article-list'
+		this.setData({articles: []});
         this.loadArticles(option)
     }
 }

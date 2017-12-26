@@ -6,7 +6,7 @@ const categoryConfig = {
 		styles: {},
 		tabId: 0,
 		scroll_left: 0,
-		errmsg: '未找到匹配数据'
+		errmsg: ''
     },
     events: {
         navigateToList (e){

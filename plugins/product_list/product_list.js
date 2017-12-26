@@ -14,7 +14,7 @@ const productListConfig = {
 			{type: 'totalprice',value: 'asc',alias: '价格'},
 			{type: 'review',value: 'asc',alias: '评价'}
         ],
-    errmsg: '未找到匹配数据',
+    errmsg: '',
     food: {
       "name": "",
       "good_ord": "0",
@@ -353,6 +353,7 @@ const productListConfig = {
 		// Parse 'node-style'
         this.parseStyle();
         // Load 'product-list'
+        this.setData({products: []});
         this.loadProducts(option)
         this.setData({
           carts: app.globalData.carts || [],
