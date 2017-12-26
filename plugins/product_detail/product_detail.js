@@ -255,7 +255,7 @@ const productDetailConfig = {
     methods: {
         parseStyle (){
             let config = this.data.param;
-            ['title','price','market_price','property'].forEach((c) => {
+            ['title','price','market_price','property','thumb'].forEach((c) => {
                 let nodestyle = "";
                 let tmpobj = config[c] || {};
                 for (let ky in tmpobj) {
