@@ -1,0 +1,4 @@
+<!-- map.wxml -->
+<template name="map">
+<map id="map" longitude="{{markers[0].longitude}}" markers="{{markers}}" latitude="{{markers[0].latitude}}" scale="14"  show-location style="{{styles}}"></map>
+</template>
