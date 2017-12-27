@@ -72,5 +72,5 @@
   <!-- 商品属性弹窗--结束 -->
 
 </view>
-<view wx:else class="product-list">{{errmsg}}</view>
+<view wx:else class="product-list err_msg">{{errmsg}}</view>
 </template>

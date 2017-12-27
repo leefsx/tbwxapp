@@ -78,6 +78,13 @@
   bottom: 100rpx !important;
 }
 
+/* 错误信息提示样式 */
+.err_msg{
+  text-align: center;
+  line-height: 50px;
+  color: #c71f3b;
+}
+
 
 
 
@@ -141,3 +148,5 @@ background-color: #c71f3b !important;
 .nav-item.active .operate text.on{
   color: #c71f3b !important;
 }
+
+

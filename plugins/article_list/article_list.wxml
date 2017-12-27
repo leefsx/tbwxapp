@@ -19,7 +19,7 @@
                 </view>
             </view>
 			<view wx:if="{{articles.length && pagerShow}}" class="list-btn" bindtap="{{loadMore}}">加载更多</view>
-            <view wx:if="{{articles.length == 0}}" class="article-list-li clearFix">{{errmsg}}</view>
+            <view wx:if="{{articles.length == 0}}" class="article-list-li clearFix err_msg">{{errmsg}}</view>
         </view>
     </view>
 </view>

@@ -14,7 +14,7 @@ const productListConfig = {
 			{type: 'totalprice',value: 'asc',alias: '价格'},
 			{type: 'review',value: 'asc',alias: '评价'}
         ],
-    errmsg: '',
+    errmsg: '加载中...',
     food: {
       "name": "",
       "good_ord": "0",

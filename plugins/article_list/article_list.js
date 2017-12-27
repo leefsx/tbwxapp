@@ -6,7 +6,7 @@ const articleListConfig = {
         styles: {},
 		pagerid: 1,
 		pagerShow: true,
-		errmsg: ''
+		errmsg: '加载中...'
     },
 	events: {
         navigateToDetail (e){

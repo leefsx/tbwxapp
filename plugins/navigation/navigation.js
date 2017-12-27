@@ -4,7 +4,7 @@ const navigationConfig = {
       navigationShow: false,
       navigations: [],
       styles: {},
-      errmsg: ''
+      errmsg: '加载中...'
     },
     events: {
       navigateToList (e){

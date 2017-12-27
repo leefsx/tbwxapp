@@ -6,7 +6,7 @@ const categoryConfig = {
 		styles: {},
 		tabId: 0,
 		scroll_left: 0,
-		errmsg: ''
+		errmsg: '加载中...'
     },
     events: {
         navigateToList (e){
