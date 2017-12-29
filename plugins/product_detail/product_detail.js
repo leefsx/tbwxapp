@@ -39,6 +39,7 @@ const productDetailConfig = {
             this.setData({tabIdx: idx})
         },
         changState() {
+          this.initData()
           this.setData({
             currentState: (!this.data.currentState)
           })
@@ -271,8 +272,37 @@ const productDetailConfig = {
                     this.setData({styles: oldobj})
                 }
             })
+        },
+        initData (){
+          var food = this.data.food;
+          var id = this.data.id;
+          var propertys = this.data.propertys
+          var detail = this.data.detail
+          var detail_price = this.data.detail_price
+          food.num = 0
+          detail.price = detail_price
+          if (propertys.length>0){
+            propertys.forEach(function(e){
+              e.details.forEach(function(item){
+                item.detail_state = '';
+              })
+            })
+          }
+          this.setData({
+            propertys: propertys,
+            detail: detail,
+            tabIdx: 0,
+            food: food,
+            attr_data: []
+          })
         }
     },
+  onHide: function() {
+    this.initData();
+    this.setData({
+      currentState: (!this.data.currentState)
+    })
+  },
 	onLoad (option){
     let app = getApp()
     wx.showLoading({
@@ -308,6 +338,7 @@ const productDetailConfig = {
 				}
         that.setData({
           detail: detail,
+          detail_price: detail.price,
           propertys: res.data.newsku,
           skulist: res.data.skulist,
           tradeRate: res.data.tradeRate,
