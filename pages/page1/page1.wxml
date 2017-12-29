@@ -1,7 +1,11 @@
 <import src='../../plugins/swiper/swiper.wxml' />
 <import src='../../plugins/product_list/product_list.wxml' />
+<import src='../../plugins/map/map.wxml' />
 
 <view id="scroll_container">
+  <view id="layerDFE829E6767E5B0B7C36C8C86B59888A" class="mod_wrapper">
+		<template is="map" data="{{ ...layerDFE829E6767E5B0B7C36C8C86B59888A}}"/>
+	</view>
 	<view id="layerDFE829E6767E5B0B7C36C8C86B59888A" class="mod_wrapper">
 		<template is="swiper" data="{{ ...layerDFE829E6767E5B0B7C36C8C86B59888A}}"/>
 	</view>
