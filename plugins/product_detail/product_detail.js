@@ -279,7 +279,7 @@ const productDetailConfig = {
           var propertys = this.data.propertys
           var detail = this.data.detail
           var detail_price = this.data.detail_price
-          food.num = 0
+          food.num = 1
           detail.price = detail_price
           if (propertys.length>0){
             propertys.forEach(function(e){
@@ -300,7 +300,7 @@ const productDetailConfig = {
   onHide: function() {
     this.initData();
     this.setData({
-      currentState: (!this.data.currentState)
+      currentState: false
     })
   },
 	onLoad (option){
