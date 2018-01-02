@@ -513,7 +513,8 @@ Page({
             delivery_mode: delivery_mode,
             disresult: disresult,
             weight: res.data.weight,
-            pickupaddrs: res.data.pickupaddrs
+            pickupaddrs: res.data.pickupaddrs,
+            payInfo: res.data.payInfo
           })
         }else{
           wx.navigateBack({})

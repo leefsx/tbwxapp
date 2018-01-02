@@ -88,7 +88,7 @@
     </picker>
   </view>
 
-  <view class="confirm-invoice confirm-box border_bottom2">
+  <view class="confirm-invoice confirm-box border_bottom2" wx:if="{{payInfo.invoice=='0'}}">
     <picker bindchange="bindInvoiceChange" value="{{index}}" range="{{invoice_mode}}">
       <view class="delivery-top border_bottom">
         <text class="fl">发票</text>
