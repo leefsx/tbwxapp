@@ -14,7 +14,7 @@
     <view bindtap="{{navigateToDetail}}" data-productid="{{item.id}}" wx:for="{{products}}" wx:key="{{item.id}}" class="product-list-item" style="{{styles.li_box}}">
         <image mode="aspectFit" src="{{item.doc_image}}" style="{{styles.thumb}}"></image>
         <view class="product-list-item-detail">
-            <view wx:if="{{param.display.title}}" style="{{styles.title}}">{{item.title}}</view>
+            <view class="product-name" wx:if="{{param.display.title}}" style="{{styles.title}}">{{item.title}}</view>
             <view wx:if="{{param.display.price}}" class="last_price" style="{{styles.price}}">￥{{item.discount_price}}</view>
             <view wx:if="{{param.display.market_price}}" style="{{styles.market_price}}">市场价：￥{{item.price}}</view>
             <view class="desc tooLong" wx:if="{{param.display.desc}}">
