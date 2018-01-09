@@ -42,7 +42,6 @@ const mapConfig = {
     this.setData({
       markers: markers
     })
-    console.log(this.data.styles)
   }
 }
 
