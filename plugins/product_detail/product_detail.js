@@ -281,7 +281,7 @@ const productDetailConfig = {
           var detail_price = this.data.detail_price
           food.num = 1
           detail.price = detail_price
-          if (propertys.length>0){
+          if (propertys && propertys.length>0){
             propertys.forEach(function(e){
               e.details.forEach(function(item){
                 item.detail_state = '';
