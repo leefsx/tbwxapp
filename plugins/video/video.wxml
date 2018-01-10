@@ -1,0 +1,5 @@
+<template name="video">
+<view class="wp_content video_content" style='text-align:{{param["text-align"]}};'>
+    <video src="{{param.src}}" controls="{{param.controls}}" autoplay="{{param.autoplay}}" loop="{{param.loop}}" muted="{{param.muted}}" style="{{styles}}"></video>
+</view>
+</template>

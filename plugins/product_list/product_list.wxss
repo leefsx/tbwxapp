@@ -254,3 +254,9 @@
 }
 
 .bg_color{background-color: #c71f3b;color:#fff;}
+
+.product-name{
+  white-space:nowrap;
+  overflow:hidden;
+  text-overflow:ellipsis;
+}

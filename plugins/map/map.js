@@ -19,10 +19,9 @@ const mapConfig = {
   methods: {
     parseStyle() {
       let config = this.data.param;
-      ['width', 'height', 'marginTop'].forEach((c) => {
+      ['width', 'height', 'margin-top','margin-left'].forEach((c) => {
         let nodestyle = "";
         let tmpobj = config[c] || {};
-        if(c == 'marginTop') c = 'margin-top'
         if (typeof tmpobj == 'number')
           tmpobj = getApp().px2rpx(tmpobj);
         nodestyle += c + ": " + tmpobj + ";";
@@ -43,7 +42,6 @@ const mapConfig = {
     this.setData({
       markers: markers
     })
-    console.log(this.data.styles)
   }
 }
 

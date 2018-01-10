@@ -34,56 +34,72 @@ Page({
   logIn: function () {
     var that = this
     var openid = wx.getStorageSync('openid');
+    if (openid.length > 1) {
+      app.apiRequest('weixin', 'dologin', {
+        data: {
+          username: this.data.userName,
+          password: this.data.userPassword,
+          openid: openid
+        },
+        success: function (res) {
+          if (res.data.result == 'OK') {
+            app.globalData.APISESSID = res.data.APISESSID;
+            app.globalData.hadlogin = true
+            wx.navigateBack({
+              delta: 1
+            })
+          } else {
+            wx.showModal({
+              title: '帐号或密码错误！',
+              content: '',
+            })
+          }
 
-    app.apiRequest('weixin','dologin',{
-      data:{
-        username: this.data.userName,
-        password: this.data.userPassword,
-        openid: openid
-      },
-      success: function(res){
-        if (res.data.result=='OK'){
-          app.globalData.APISESSID = res.data.APISESSID;
-          app.globalData.hadlogin = true
-          wx.switchTab({
-            url: `../ucenter/ucenter`
-          })
-        }else{
-          wx.showToast({
-            title: '帐号或密码错误！'
-          })
         }
-        
-      }
-    })
+      })
+    }else{
+      wx.showModal({
+        title: '获取用户信息失败！',
+        content: '',
+      })
+    }
 
   },
   auto_registered: function(opt){
     var that = this
     var openid = wx.getStorageSync('openid');
-    app.apiRequest('weixin', 'auto_registered',{
-      data: {
-        openid: openid,
-        headphoto: that.data.userInfo.avatarUrl,
-        nickName: that.data.userInfo.nickName
-      },
-      success: function(res){
-        if(res.data.result=='OK'){
-          app.globalData.APISESSID = res.data.APISESSID
-          app.globalData.hadlogin = true
-          wx.showToast({
-            title: '注册成功'
-          })
-          wx.navigateBack({
-            delta: 1
-          })
-        }else{
-          wx.showToast({
-            title: '请求失败！'
-          })
+    if (openid.length > 1) {
+      app.apiRequest('weixin', 'auto_registered',{
+        data: {
+          openid: openid,
+          headphoto: that.data.userInfo.avatarUrl,
+          nickName: that.data.userInfo.nickName
+        },
+        success: function(res){
+          if(res.data.result=='OK'){
+            app.globalData.APISESSID = res.data.APISESSID
+            app.globalData.hadlogin = true
+            wx.showToast({
+              title: '注册成功'
+            })
+            wx.navigateBack({
+              delta: 1
+            })
+          }else{
+            let errmsg = res.data.errmsg || '请求失败！'
+            wx.showModal({
+              title: errmsg,
+              content: '',
+            })
+          }
         }
-      }
-    })
+      })
+    } else {
+      wx.showModal({
+        title: '自动注册失败！',
+        content: '',
+      })
+    }
   },
   onLoad: function () {
     var that = this
@@ -94,6 +110,13 @@ Page({
         userInfo: userInfo
       })
     })
+    var openid = wx.getStorageSync('openid');
+    if (openid.length < 1) {
+      wx.showModal({
+        title: '获取用户信息失败！',
+        content: '',
+      })
+    }
   },
   onShow: function () {
     var self = this;
