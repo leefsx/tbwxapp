@@ -13,3 +13,6 @@
   box-sizing: border-box;
   z-index: 99999;
 }
+.mod_wrapper{
+  height: 0px;
+}
