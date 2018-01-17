@@ -224,13 +224,18 @@ Page({
     var ifee = this.data.ifee || 0
     var total_price = parseFloat(this.data.total_price) - ifee
     var lastPrice = parseFloat(this.data.lastPrice) - ifee
-    
-    if (curr_dis.key > 1 && lastPrice < curr_dis.free_fee){
-      if (weight < curr_dis.fweight){
-        ifee = parseFloat(curr_dis.f_fee)
+    var unity_set = parseFloat(this.data.payInfo.unity_set)
+    if (curr_dis.key > 1 && (!curr_dis.free_fee || lastPrice < curr_dis.free_fee)){
+      if (unity_set && unity_set=='1'){
+        ifee = parseFloat(this.data.payInfo.unity_fee)
       }else{
-        ifee = parseFloat(curr_dis.f_fee) + ((weight - parseFloat(curr_dis.f_weight)) / parseFloat(curr_dis.r_weight)) * parseFloat(curr_dis.r_fee)
+        if (weight < curr_dis.fweight) {
+          ifee = parseFloat(curr_dis.f_fee)
+        } else {
+          ifee = parseFloat(curr_dis.f_fee) + ((weight - parseFloat(curr_dis.f_weight)) / parseFloat(curr_dis.r_weight)) * parseFloat(curr_dis.r_fee)
+        }
       }
+      
       total_price += ifee
       lastPrice += ifee
     }else{
