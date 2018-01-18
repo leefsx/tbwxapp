@@ -324,7 +324,12 @@ const productListConfig = {
 					if ('ERROR' == res.data.result || '') {
 						that.setData({errmsg: res.data.errmsg})
 						return false
-					}
+					}         
+
+                    if (ispager) {
+                      let oldproducts = that.data.products
+                      products = oldproducts.concat(products)
+                    }
                     let maxln = products.length;
                     products.forEach((c, i) => {
                         if (c.doc_image.length == 0)
@@ -338,8 +343,8 @@ const productListConfig = {
 					
 					let _limit = _param_.data_source.limit;
 					if (ispager) {
-						that.data.products.push(...products);
-						that.setData({products: that.data.products});
+						//that.data.products.push(...products);
+						that.setData({products: products});
 						that.setData({pagerid: that.data.pagerid + 1})
 					} else that.setData({products})
 					that.setData({pagerShow: maxln < _limit ? false : true})
