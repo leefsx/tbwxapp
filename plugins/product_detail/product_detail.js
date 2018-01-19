@@ -24,7 +24,8 @@ const productDetailConfig = {
         },
         currentState: false,
         carts: [],
-        attr_data:[]
+        attr_data:[],
+        salesRecordsPage: 0
     },
     events: {
         changeDetailShow (){
@@ -251,6 +252,38 @@ const productDetailConfig = {
             attr_data: attr_data,
             detail: detail_data
           })
+        },
+        loadMoreSalesRecords() {
+          let that = this
+          let salesRecordsPage = that.data.salesRecordsPage + 1
+          let product_id = that.$this.options.product_id
+          let salesRecords = that.data.salesRecords
+          let app = getApp()
+          app.apiRequest('product_detail', 'getSalesRecordsByPage', {
+            data: { product_id: product_id, page: salesRecordsPage },
+            success(res) {
+              let resdata = res.data.data || []
+              if (res.data.result == 'OK') {
+                if (resdata.length > 0) {
+                  that.setData({
+                    salesRecords: salesRecords.concat(res.data.data),
+                    salesRecordsPage: salesRecordsPage
+                  })
+                } else {
+                  wx.showToast({
+                    title: '没有更多',
+                  })
+                }
+              } else {
+                let errmsg = res.data.errmsg || '请求失败'
+                wx.showModal({
+                  title: errmsg,
+                  content: '',
+                })
+              }
+            }
+
+          })
         }
     },
     methods: {
@@ -312,7 +345,8 @@ const productDetailConfig = {
     this.setData({
       detail: {},
       carts: app.globalData.carts || [],
-      displaydata: this.data.param.display
+      displaydata: this.data.param.display,
+      salesRecordsPage: 0
     })
     this.setData({
       showBar: this.$this.data.showBar
