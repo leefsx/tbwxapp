@@ -502,6 +502,18 @@ Page({
               delivery_mode.push(disresult[i].title)
             }
           }
+          if (res.data.receipt){
+            var delivery_time = []
+            var receipt = res.data.receipt
+            for (var i in receipt){
+              delivery_time.push(receipt[i].title)
+            }
+            if (delivery_time){
+              that.setData({
+                delivery_time: delivery_time
+              })
+            }
+          }
           that.setData({
             coupon: couponnum,
             ujfdata: ujfdata,

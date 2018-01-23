@@ -199,7 +199,6 @@ const productDetailConfig = {
             }]
             comm.get_cuser({
               success: function (cuser) {
-                console.log('get_cusered')
                 var that = this
                 if (cuser == false) {
                   wx.hideLoading()
@@ -379,7 +378,11 @@ const productDetailConfig = {
           salesRecords: res.data.salesRecords,
           productMessage: res.data.productMessage
         });
-				WxParse.wxParse('prdintro', 'html', detail.introduction, that, 5);
+        var pageobj=that.$this;
+        var layerid=that.$scope;
+        WxParse.wxParse(layerid + '.prdintro', 'html', detail.introduction, pageobj, 5);
+        that.data.prdintro = pageobj.data[layerid].prdintro;
+        that.setData({ prdintro: pageobj.data[layerid].prdintro})
                 // for 'product-description'
                 let desctitle = [], prdescobj = [];
                 if (Array.isArray(detail.desc)){
@@ -390,11 +393,14 @@ const productDetailConfig = {
                 for (var i in prdescobj) {
                     let vobj = prdescobj[i];
                     desctitle.push({"title": vobj.title});
-                    WxParse.wxParse('prdesc' + i, 'html', vobj.desc, that)
+
+                    WxParse.wxParse(layerid+'.prdesc' + i, 'html', vobj.desc, pageobj)
+                    that.data['prdesc' + i] = pageobj.data[layerid]['prdesc' + i];
                 }
                 that.setData({desctitle});
 				wx.hideLoading()
-                WxParse.wxParseTemArray("prdescArr", 'prdesc', parseInt(i) + 1, that)
+        WxParse.wxParseTemArray(layerid + ".prdescArr", layerid +'.prdesc', parseInt(i) + 1, pageobj)
+        that.data.prdescArr = pageobj.data[layerid].prdescArr
             },
             complete: function () {
               wx.hideLoading()

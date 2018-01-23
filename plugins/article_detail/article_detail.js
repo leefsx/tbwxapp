@@ -57,8 +57,11 @@ const articleDetailConfig = {
 				}
                 detail.publish_time = app.toLocalTime(detail.publish_time);
                 that.setData({detail});
-				wx.hideLoading()
-				WxParse.wxParse('artdetail', 'html', detail.content, that, 5)
+			wx.hideLoading()
+			var pageobj=that.$this;
+			var detailkey = that.$scope + ".artdetail";
+			WxParse.wxParse(detailkey, 'html', detail.content, pageobj, 5)
+			that.data.artdetail = pageobj.data[that.$scope].artdetail
             },
             complete: function () {
               wx.hideLoading()

@@ -1,0 +1,5 @@
+<template name="buttons">
+<view class="button" style="{{styles2}}">
+  <view class="button-title" hover-class="btnhover" bindtap="viewtap" data-layerid="{{layerid}}" style="{{styles}}">{{param.text}}</view>
+</view>
+</template>

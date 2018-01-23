@@ -57,9 +57,10 @@ function wxParseImgTap(e) {
   var nowImgUrl = e.target.dataset.src;
   var tagFrom = e.target.dataset.from;
   if (typeof (tagFrom) != 'undefined' && tagFrom.length > 0) {
+    var binddata = getBindData(that, tagFrom);
     wx.previewImage({
       current: nowImgUrl, // 当前显示图片的http链接
-      urls: that.data[tagFrom].imageUrls // 需要预览的图片http链接列表
+      urls: binddata.imageUrls // 需要预览的图片http链接列表
     })
   }
 }
@@ -75,9 +76,21 @@ function wxParseImgLoad(e) {
     calMoreImageInfo(e, idx, that, tagFrom)
   } 
 }
+
+function getBindData(that,bindName){
+  var data=that.data;
+  var bindednames = bindName.split('.');
+  var ret=data;
+  for(var i=0;i<bindednames.length;i++){
+    var k = bindednames[i];
+    ret=ret[k];
+  }
+  return ret;
+}
+
 // 假循环获取计算图片视觉最佳宽高
 function calMoreImageInfo(e, idx, that, bindName) {
-  var temData = that.data[bindName];
+  var temData = getBindData(that, bindName);
   if (!temData || temData.images.length == 0) {
     return;
   }
@@ -107,7 +120,7 @@ function wxAutoImageCal(originalWidth, originalHeight,that,bindName) {
   var windowWidth = 0, windowHeight = 0;
   var autoWidth = 0, autoHeight = 0;
   var results = {};
-  var padding = that.data[bindName].view.imagePadding;
+  var padding = getBindData(that, bindName).view.imagePadding;
   windowWidth = realWindowWidth-2*padding;
   windowHeight = realWindowHeight;
   //判断按照那种方式进行缩放
@@ -131,12 +144,12 @@ function wxParseTemArray(temArrayName,bindNameReg,total,that){
   var temData = that.data;
   var obj = null;
   for(var i = 0; i < total; i++){
-    var simArr = temData[bindNameReg+i].nodes;
+    var simArr = getBindData(that, bindNameReg + i).nodes;
     array.push(simArr);
   }
 
   temArrayName = temArrayName || 'wxParseTemArray';
-  obj = JSON.parse('{"'+ temArrayName +'":""}');
+  obj ={}
   obj[temArrayName] = array;
   that.setData(obj);
 }
