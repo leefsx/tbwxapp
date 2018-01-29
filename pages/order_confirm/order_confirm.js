@@ -31,7 +31,7 @@ Page({
     ],
     pay_way_id:1,
     delivery_mode:[],
-    delivery_time:["9:00-12:00","12:00-18:00","18:00-22:00"],
+    delivery_time:[],
     coupon_mode:[{"name":"未使用"}],
     integral_mode:[0],
     balance_mode:[0.00],

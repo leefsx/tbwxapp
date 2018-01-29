@@ -40,13 +40,13 @@
         <text class="delivery_addr-no-tex">添加收货人信息</text>
       </view>
     </view>
-    <picker mode="date" value="{{date}}" start="{{start_date}}" end="{{end_date}}" bindchange="bindDateChange">
+    <picker wx:if="{{!dis_key||dis_key>1}}" mode="date" value="{{date}}" start="{{start_date}}" end="{{end_date}}" bindchange="bindDateChange">
       <view class="delivery-top border_bottom ">
         <text class="fl">配送日期</text>
         <view class="picker fr">{{date}}</view>
       </view>
     </picker>
-    <picker bindchange="bindTimeChange" value="{{index}}" range="{{delivery_time}}">
+    <picker bindchange="bindTimeChange" wx:if="{{delivery_time.length&&(!dis_key||dis_key>1)}}" value="{{index}}" range="{{delivery_time}}">
       <view class="delivery-top border_bottom ">
         <text class="fl">配送时间</text>
         <view class="picker fr">{{delivery_time[index_time]}}</view>
