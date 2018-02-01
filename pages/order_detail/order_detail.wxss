@@ -18,7 +18,7 @@
 }
 
 .delivery-middle{
-  height: 200rpx;
+  min-height: 200rpx;
 }
 .delivery_addr-no-tex{
   display: block;
@@ -31,7 +31,7 @@
 }
 .delivery_addr-no-list{
   position: relative;
-  height: 120rpx;
+  min-height: 120rpx;
   padding: 35rpx 20rpx 35rpx 170rpx;
 }
 .delivery_addr-no-list image {
