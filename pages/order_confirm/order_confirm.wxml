@@ -3,9 +3,9 @@
       <!--<view class="orders-number color2 border_bottom">订单编号：{{oid}}</view>-->
       <navigator wx:for="{{selectCarts}}" url="../details/details?id={{item.cid||item.id}}" class="orders-detail border_bottom">
           <image src="{{item.image||item.product_thumb}}"></image>
-          <view class="">{{item.title||item.product_name}}</view>
-          <view class="">{{item.num||item.amount}}</view>
-          <text class="orders-status cart_color">待付款</text>
+          <view class="tooLong2" style="line-height: 40rpx;">{{item.title||item.product_name}}</view>
+          <view class="" style="position: absolute;left: 170rpx;bottom: 0;line-height: 60rpx;">{{item.num||item.amount}}</view>
+          <!-- <text class="orders-status cart_color">待付款</text> -->
       </navigator>
       <view class="orders-footer">
           <text class="fl">{{nowtime}}</text>
