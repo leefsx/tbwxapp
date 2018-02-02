@@ -48,9 +48,13 @@ const articleListConfig = {
 			let data = {}, _param_ = that.data.param;
 			data['sortby'] = JSON.stringify(_param_.sortby);
 			data['data_source'] = JSON.stringify(_param_.data_source);
-			if (/^[1-9]\d*$/.test(option.article_category || 0))
-				data['article_category'] = option.article_category;
-			
+      if (/^[1-9]\d*$/.test(option.article_category || 0))
+        data['article_category'] = option.article_category;
+      else {
+        _param_.data_source.value = option.article_category.split(',');
+        data['article_category'] = option.article_category;
+      }
+      data['data_source'] = JSON.stringify(_param_.data_source);
 			data = Object.assign(data, frmdata);
 			let ispager = /^[1-9]{1}\d*$/.test(frmdata.page||0)?true:false;
 			app.apiRequest('article_list', 'index', {

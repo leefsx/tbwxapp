@@ -25,7 +25,8 @@ const productDetailConfig = {
         currentState: false,
         carts: [],
         attr_data:[],
-        salesRecordsPage: 0
+        salesRecordsPage: 0,
+        prdescarr:[]
     },
     events: {
         changeDetailShow (){
@@ -382,7 +383,6 @@ const productDetailConfig = {
         var layerid=that.$scope;
         WxParse.wxParse(layerid + '.prdintro', 'html', detail.introduction, pageobj, 5);
         that.data.prdintro = pageobj.data[layerid].prdintro;
-        that.setData({ prdintro: pageobj.data[layerid].prdintro})
                 // for 'product-description'
                 let desctitle = [], prdescobj = [];
                 if (Array.isArray(detail.desc)){
@@ -394,13 +394,11 @@ const productDetailConfig = {
                     let vobj = prdescobj[i];
                     desctitle.push({"title": vobj.title});
 
-                    WxParse.wxParse(layerid+'.prdesc' + i, 'html', vobj.desc, pageobj)
-                    that.data['prdesc' + i] = pageobj.data[layerid]['prdesc' + i];
+                    WxParse.wxParse(layerid+'.prdescarr[' + i+']', 'html', vobj.desc, pageobj,10)
+                    that.data['prdescarr'][i] = pageobj.data[layerid]['prdescarr'][i];
                 }
                 that.setData({desctitle});
 				wx.hideLoading()
-        WxParse.wxParseTemArray(layerid + ".prdescArr", layerid +'.prdesc', parseInt(i) + 1, pageobj)
-        that.data.prdescArr = pageobj.data[layerid].prdescArr
             },
             complete: function () {
               wx.hideLoading()

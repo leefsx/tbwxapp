@@ -18,7 +18,7 @@ const buttonsConfig = {
         let nodestyle = "";
         let tmpobj = config[c] || '';
         if (typeof c == 'undefined' || tmpobj == '') continue;
-        if (typeof tmpobj == 'number' && c != 'line-height')
+        if (typeof tmpobj == 'number')
           tmpobj = getApp().px2rpx(tmpobj);
         nodestyle += c + ": " + tmpobj + ";";
         if (nodestyle.length > 0 || nodestyle2.length > 0) {
@@ -31,7 +31,7 @@ const buttonsConfig = {
         let nodestyle2 = "";
         let tmpobj = config2[s] || '';
         if (typeof s == 'undefined' || tmpobj == '') continue;
-        if (typeof tmpobj == 'number' && s != 'line-height'){
+        if (typeof tmpobj == 'number'){
           tmpobj = getApp().px2rpx(tmpobj);
         }
         nodestyle2 += s + ": " + tmpobj + ";";
@@ -44,6 +44,7 @@ const buttonsConfig = {
     }
   },
   onLoad(option) {
+    console.log(this.data)
     this.parseStyle()
   }
 }

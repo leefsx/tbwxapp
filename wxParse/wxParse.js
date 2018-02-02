@@ -83,7 +83,14 @@ function getBindData(that,bindName){
   var ret=data;
   for(var i=0;i<bindednames.length;i++){
     var k = bindednames[i];
-    ret=ret[k];
+    var matches = k.match(/^(.+?)\[(\d+)\]$/)
+    if (matches){
+      var index = parseInt(matches[2]);
+      ret = ret[matches[1]][index];
+    }else{
+      ret = ret[k];
+    }
+    
   }
   return ret;
 }

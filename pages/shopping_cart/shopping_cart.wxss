@@ -14,8 +14,8 @@
     position: absolute;
     left: 20rpx;
     top: 90rpx;
-    width: 45rpx;
-    height: 45rpx;
+    width: 75rpx;
+    height: 75rpx;
 }
 
 .cart-list .cart-thumb{

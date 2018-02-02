@@ -311,10 +311,14 @@ const productListConfig = {
             let glconfig = app.globalData.config;
             let data = {}, _param_ = that.data.param;
             data['sortby'] = JSON.stringify(_param_.sortby);
-            data['data_source'] = JSON.stringify(_param_.data_source);
+            
             if (/^[1-9]\d*$/.test(option.product_category || 0))
                 data['product_category'] = option.product_category;
-            
+            else if (option.product_category){
+              _param_.data_source.value = option.product_category.split(',');
+              data['product_category'] = option.product_category;
+            }
+            data['data_source'] = JSON.stringify(_param_.data_source);
             data = Object.assign(data, frmdata);
 			let ispager = /^[1-9]{1}\d*$/.test(frmdata.page||0)?true:false;
             app.apiRequest('product_list', 'index', {
@@ -324,12 +328,7 @@ const productListConfig = {
 					if ('ERROR' == res.data.result || '') {
 						that.setData({errmsg: res.data.errmsg})
 						return false
-					}         
-
-                    if (ispager) {
-                      let oldproducts = that.data.products
-                      products = oldproducts.concat(products)
-                    }
+					}
                     let maxln = products.length;
                     products.forEach((c, i) => {
                         if (c.doc_image.length == 0)
@@ -343,8 +342,8 @@ const productListConfig = {
 					
 					let _limit = _param_.data_source.limit;
 					if (ispager) {
-						//that.data.products.push(...products);
-						that.setData({products: products});
+						that.data.products.push(...products);
+						that.setData({products: that.data.products});
 						that.setData({pagerid: that.data.pagerid + 1})
 					} else that.setData({products})
 					that.setData({pagerShow: maxln < _limit ? false : true})
