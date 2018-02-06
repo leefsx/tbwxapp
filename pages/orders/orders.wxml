@@ -41,7 +41,7 @@
                 
                 <view class="orders-btns" wx:if="{{item.order_status_no==1&&item.ori_status!=5}}">
                   <view class="orders-btn cart_bg_color" data-oid="{{item.oid}}" bindtap="cancelOrders">取消订单</view>
-                  <view class="orders-btn cart_bg_color" data-oid="{{item.oid}}" bindtap="payOrders">付款</view>
+                  <view class="orders-btn cart_bg_color" data-oid="{{item.oid}}" bindtap="payOrders" data-index="{{index}}">付款</view>
                 </view>
                 <view class="orders-btns" wx:elif="{{item.order_status_no==2 && item.delivery_status_no==1}}">
                   <view class="orders-btn cart_bg_color" data-oid="{{item.id}}" bindtap="remind">提醒发货</view>

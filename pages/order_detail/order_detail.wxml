@@ -81,7 +81,7 @@
   <view class="confirm-pay confirm-box medium_font border_bottom2" style="border-bottom:none;">
       <view class="delivery-top border_bottom">
         <text class="fl">支付方式</text>
-        <view class="picker fr">在线支付</view>
+        <view class="picker fr">{{cash.title || '在线支付'}}</view>
       </view>
 
     

@@ -128,7 +128,8 @@ Page({
       yhjid: this.data.yhjid,
       yhjprice: this.data.yhjprice,
       dis_key: this.data.dis_key,
-      ifee: this.data.ifee
+      ifee: this.data.ifee,
+      cashval: this.data.cashval
     }
     var that = this
     app.apiRequest('order', 'createOrder',{
@@ -152,6 +153,23 @@ Page({
               }
             })
             app.globalData.carts = newCarts
+          }
+          let index_pay = that.data.index_pay
+          let cashresult = that.data.cashresult
+          if (cashresult[index_pay]){
+            let cash = cashresult[index_pay]
+            if(cash.key == '2'){
+              if(cash.paraval.paytype=='0'){
+                wx.navigateTo({
+                  url: '/pages/order_detail/order_detail?oid=' + oid,
+                })
+              }else{
+                wx.navigateTo({
+                  url: '/pages/showsuccess/showsuccess?id=' + cash.id + '&oid=' + oid + '&total_price=' + that.data.lastPrice,
+                })
+              }
+              return false
+            }
           }
           app.apiRequest('order', 'dopayment',{
             data: {
@@ -221,9 +239,10 @@ Page({
     var weight = parseFloat(this.data.weight)
     var disresult = this.data.disresult
     var curr_dis = disresult[index_mode]
-    var ifee = this.data.ifee || 0
-    var total_price = parseFloat(this.data.total_price) - ifee
-    var lastPrice = parseFloat(this.data.lastPrice) - ifee
+    var ifee = parseFloat(this.data.ifee) || 0
+    var payfee = parseFloat(this.data.payfee) || 0
+    var total_price = parseFloat(this.data.total_price) - ifee - payfee
+    var lastPrice = parseFloat(this.data.lastPrice) - ifee - payfee
     var unity_set = parseFloat(this.data.payInfo.unity_set)
     if (curr_dis.key > 1 && (!curr_dis.free_fee || lastPrice < curr_dis.free_fee)){
       if (unity_set && unity_set=='1'){
@@ -241,6 +260,8 @@ Page({
     }else{
       ifee = 0
     }
+    total_price += payfee
+    lastPrice += payfee
     this.setData({
       index_mode: index_mode,
       total_price: total_price.toFixed(2),
@@ -273,8 +294,39 @@ Page({
     })
   },
   bindPayChange(e) {
+    let index_pay = e ? e.detail.value : 0
+    let cashresult = this.data.cashresult
+    let ifee = parseFloat(this.data.ifee) || 0
+    let payfee = parseFloat(this.data.payfee) || 0
+    let cashval = this.data.cashval || 0
+    let total_price = parseFloat(this.data.total_price) - ifee - payfee
+    let lastPrice = parseFloat(this.data.lastPrice) - ifee - payfee
+    let description = ''
+    if (cashresult[index_pay]) {
+      let cash = cashresult[index_pay]
+      cashval = cash.id
+      if (cash['description']) description = cash['description']
+      if (cash.paraval.base_type == '1') {
+        payfee = total_price * cash.paraval.base_fee / 100
+      } else if (cash.paraval.base_fee){
+        payfee = parseFloat(cash.paraval.base_fee)
+      }else{
+        payfee = 0
+      }
+      if (!isNaN(payfee)){
+      } else {
+        payfee = 0
+      }
+      total_price = total_price + ifee + payfee
+      lastPrice = lastPrice + ifee + payfee
+    }
     this.setData({
-      index_pay: e.detail.value
+      payfee: payfee.toFixed(2),
+      cashval: cashval,
+      index_pay: index_pay,
+      total_price: total_price.toFixed(2),
+      lastPrice: lastPrice.toFixed(2),
+      description: description
     })
   },
   changePay(e){
@@ -428,7 +480,6 @@ Page({
     })
     
     this.showOrderInterface(selectCarts)
-    
   },
   showOrderInterface(selectCarts) {
     var that = this 
@@ -514,6 +565,17 @@ Page({
               })
             }
           }
+          if (res.data.cashresult){
+            var pay_mode = []
+            let cashresult = res.data.cashresult
+            for (let i in cashresult){
+              if (cashresult[i].key == '18'){
+                pay_mode.push('微信支付')
+              }else{
+                pay_mode.push(cashresult[i].title)
+              }
+            }
+          }
           that.setData({
             coupon: couponnum,
             ujfdata: ujfdata,
@@ -531,8 +593,11 @@ Page({
             disresult: disresult,
             weight: res.data.weight,
             pickupaddrs: res.data.pickupaddrs,
-            payInfo: res.data.payInfo
+            payInfo: res.data.payInfo,
+            pay_mode: pay_mode,
+            cashresult: res.data.cashresult
           })
+          that.bindPayChange('')
         }else{
           wx.navigateBack({})
         }

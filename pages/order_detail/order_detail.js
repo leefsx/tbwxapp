@@ -47,7 +47,8 @@ Page({
               oid: oid,
               dis_title: res.data.dis_title,
               trade_status: res.data.trade_status,
-              pickupaddrs: res.data.pickupaddrs
+              pickupaddrs: res.data.pickupaddrs,
+              cash: res.data.cash
             })
             if (res.data.address) {
               that.setData({
@@ -160,73 +161,84 @@ Page({
     }
   },
   payOrders(opt) {
-    
-    wx.showToast({
-      title: '请求中...',
-      icon: 'loading',
-      duration: 5000
-    })
     var oid = opt.target.dataset.oid
-    var openid = wx.getStorageSync('openid')
-    if (oid && openid) {
-      app.apiRequest('order', 'dopayment',{
-        data: {
-          oid: oid,
-          method: 'POST',
-          mark: 'new'
-        },
-        success: function (res) {
-          if (res.data.result == 'OK') {
-            if(res.data.wxPrice > 0){
-              var temdata = {'oid':oid,'openid':openid,'mark':'new'}
-              //wx pay
-              app.apiRequest('order', 'getprepay_id',{
-                data: {
-                  data: JSON.stringify(temdata),
-                  method: 'POST'
-                },
-                success: function (res) {
-                  if (res.data.result == 'OK') {
-                    app.globalData.carts = []
-                    res.data.oid = oid
-                    comm.pay(res.data)
-                  } else {
-                    var err = res.data.errmsg || '支付失败'
-                    wx.showToast({
-                      title: err
-                    })
-                  }
-                }
-              })
-            } else {
-              app.globalData.carts = []
-              wx.showToast({
-                title: '支付成功！',
-                icon: 'success',
-                duration: 2500
-              })
-              wx.redirectTo({
-                url: '../order_detail/order_detail?oid=' + oid,
-              })
-            }
-          } else {
-            var err = res.data.errmsg || '支付失败'
-            wx.showToast({
-              title: err
-            })
-            return false;
-          }
-        }
-      })
-
-    } else {
+    let cash = this.data.cash || []
+    let order = this.data.order
+    if (cash){
+      let cash_key = cash.key
+      if(cash_key == '2'){
+        wx.navigateTo({
+          url: '/pages/showsuccess/showsuccess?id=' + cash.id + '&oid=' + oid + '&total_price=' + order.total_amount_new,
+        })
+      }
+    }else{
       wx.showToast({
-        title: '请求失败',
+        title: '请求中...',
         icon: 'loading',
         duration: 5000
       })
-    }
+      var openid = wx.getStorageSync('openid')
+      if (oid && openid) {
+        app.apiRequest('order', 'dopayment', {
+          data: {
+            oid: oid,
+            method: 'POST',
+            mark: 'new'
+          },
+          success: function (res) {
+            if (res.data.result == 'OK') {
+              if (res.data.wxPrice > 0) {
+                var temdata = { 'oid': oid, 'openid': openid, 'mark': 'new' }
+                //wx pay
+                app.apiRequest('order', 'getprepay_id', {
+                  data: {
+                    data: JSON.stringify(temdata),
+                    method: 'POST'
+                  },
+                  success: function (res) {
+                    if (res.data.result == 'OK') {
+                      app.globalData.carts = []
+                      res.data.oid = oid
+                      comm.pay(res.data)
+                    } else {
+                      var err = res.data.errmsg || '支付失败'
+                      wx.showToast({
+                        title: err
+                      })
+                    }
+                  }
+                })
+              } else {
+                app.globalData.carts = []
+                wx.showToast({
+                  title: '支付成功！',
+                  icon: 'success',
+                  duration: 2500
+                })
+                wx.redirectTo({
+                  url: '../order_detail/order_detail?oid=' + oid,
+                })
+              }
+            } else {
+              var err = res.data.errmsg || '支付失败'
+              wx.showToast({
+                title: err
+              })
+              return false;
+            }
+          }
+        })
 
+      } else {
+        wx.showToast({
+          title: '请求失败',
+          icon: 'loading',
+          duration: 5000
+        })
+      }
+
+    }
+    
   },
   // 取消订单
   cancelOrders() {

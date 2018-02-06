@@ -247,12 +247,25 @@ Page({
       }) 
     },
     payOrders(opt) {
+      var oid = opt.target.dataset.oid
+      let orders = this.data.orders
+      let index = opt.target.dataset.index
+      if(orders[index]){
+        let cash_key = orders[index].cash_key || 0
+        let cash_id = orders[index].cash_id || 0
+        if (cash_key == '2' && cash_id){
+          let total_amount = orders[index].total_amount
+          wx.navigateTo({
+            url: '/pages/showsuccess/showsuccess?id=' + cash_id + '&oid=' + oid + '&total_price=' + total_amount,
+          })
+          return false
+        }
+      }
       wx.showToast({
         title: '请求中...',
         icon: 'loading',
         duration: 5000
       })
-      var oid = opt.target.dataset.oid
       var openid = wx.getStorageSync('openid')
       if (oid && openid) {
         app.apiRequest('order', 'dopayment',{

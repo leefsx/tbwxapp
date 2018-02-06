@@ -68,6 +68,11 @@
       </view>
      
     </view>
+    <view class="confirm-pay confirm-box border_bottom2" wx:if="{{description}}">
+      <view class="border_bottom orders-number">
+        <text class="fl">{{description}}</text>
+      </view>
+    </view>
     <picker bindchange="bindCouponChange" value="{{index}}" range="{{coupon_mode}}" range-key="name">
       <view class="delivery-top border_bottom  coupon-list" >
         <text class="fl">优惠券:<text class="cart_color">{{coupon}}张</text></text>
