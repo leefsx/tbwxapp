@@ -94,7 +94,9 @@ App({
 	
 	let ftype = obj.type || 'none';
 	if (ftype == 'none') return false;
-	let fvalue = obj.param.value || '';
+  let fvalue = obj.param.value || '';
+  let pagevalue = obj.param.pagevalue || '';
+  let idsvalue = obj.param.idsvalue || '';
 	switch (ftype) {
 		case 'func':
 			if (obj.param.type == 'callto') {
@@ -102,7 +104,29 @@ App({
 				wx.makePhoneCall({
 				  phoneNumber: fvalue
 				})
-			}
+      } else {
+        let str = obj.param.type
+        let arr = str.split('_');
+        let typestr = ''
+        fvalue = pagevalue
+        if (arr[0] && arr[1] && arr[1]=='list'){
+          typestr = arr[0] + '_category' 
+        } else if (arr[0] && arr[1] && arr[1] == 'detail'){
+          typestr = arr[0] + '_id' 
+        } else {
+          console.log('Type error!');
+          return false
+        }
+        if (!typestr) return false;
+        let ids = ''
+        if(idsvalue.length > 0){
+          ids = idsvalue.toString()
+        }
+        //if (/^\d+$/.test(fvalue)) {
+          let _url = 'page' + fvalue;
+          this.turnToPage(_url + '/' + _url + '?' + typestr + '=' + ids)
+        //}
+      }
 			break;
 		case 'page':
 			if (/^\d+$/.test(fvalue)) {
