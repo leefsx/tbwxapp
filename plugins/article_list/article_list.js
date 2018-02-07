@@ -85,7 +85,11 @@ const articleListConfig = {
 						that.setData({articles: that.data.articles});
 						that.setData({pagerid: that.data.pagerid + 1})
 					} else that.setData({articles})
-					that.setData({pagerShow: articles.length < _limit ? false : true})
+          if (_param_.data_source.type == 'ids') {
+            that.setData({ pagerShow: false })
+          } else {
+            that.setData({ pagerShow: articles.length < _limit ? false : true })
+          }
 				},
 				fail (){console.error("请求失败")}
 			})

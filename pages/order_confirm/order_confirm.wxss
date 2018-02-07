@@ -13,7 +13,7 @@
 
 
 .orders-number{
-    height: 90rpx;
+    min-height: 90rpx;
     line-height: 90rpx;
 }
 .orders-detail{
@@ -44,9 +44,9 @@
     padding:15rpx 20rpx 15rpx 0;
 }
 
-.delivery-top{
+.delivery-top,.delivery-desc{
   position:relative;
-  height:90rpx;
+  min-height:90rpx;
   line-height: 90rpx;
   text-align:center;
   padding-right:38rpx;
@@ -187,4 +187,14 @@
   display:inline-block;
   vertical-align:middle;
   margin-right:10rpx;  
+}
+
+.descfr{
+  width: 520rpx;
+  min-height: 90rpx;
+  line-height: 40rpx;
+  word-break: break-all;
+  text-align: right;
+  margin-right: -20rpx;
+  margin-top: 23rpx;
 }

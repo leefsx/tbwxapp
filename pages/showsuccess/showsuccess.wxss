@@ -59,3 +59,8 @@
   width: 400rpx;
   height: 400rpx;
 }
+.fl.descfl{
+  line-height: 40rpx;
+  text-align: left;
+  padding: 0 30rpx;
+}

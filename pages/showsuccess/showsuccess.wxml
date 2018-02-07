@@ -25,11 +25,11 @@
           <text>{{para.account}}</text>
         </view>
     </view>
-    <view class="delivery-top border_bottom">
+    <view class="delivery-top">
         <text class="fl">商家说明</text>
-        <view class="picker fr">
-          <text>{{para.desc}}</text>
-        </view>
+    </view>
+    <view class="delivery-top">
+        <text class="fl descfl">{{para.desc}}</text>
     </view>
     <view class="imageview">
       <image src="{{para.recep}}"></image>
@@ -60,11 +60,11 @@
           <text>{{para.baddress}}</text>
         </view>
     </view>
-    <view class="delivery-top border_bottom">
+    <view class="delivery-top">
         <text class="fl">商家说明</text>
-        <view class="picker fr">
-          <text>{{para.descs}}</text>
-        </view>
+    </view>
+    <view class="delivery-top">
+        <text class="fl descfl">{{para.descs}}</text>
     </view>
     </block>
   </view>

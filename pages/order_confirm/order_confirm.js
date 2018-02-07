@@ -159,13 +159,14 @@ Page({
           if (cashresult[index_pay]){
             let cash = cashresult[index_pay]
             if(cash.key == '2'){
+              wx.hideLoading()
               if(cash.paraval.paytype=='0'){
-                wx.navigateTo({
+                wx.redirectTo({
                   url: '/pages/order_detail/order_detail?oid=' + oid,
                 })
               }else{
-                wx.navigateTo({
-                  url: '/pages/showsuccess/showsuccess?id=' + cash.id + '&oid=' + oid + '&total_price=' + that.data.lastPrice,
+                wx.redirectTo({
+                  url: '/pages/showsuccess/showsuccess?id=' + cash.id + '&oid=' + oid + '&total_price=' + total_fee,
                 })
               }
               return false

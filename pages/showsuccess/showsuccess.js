@@ -22,11 +22,15 @@ Page({
       let that = this
       app.apiRequest('order', 'showsuccess', {
         data: {
-          id: id
+          id: id,
+          oid: oid
         },
         success: function (res) {
           if(res.data.result == 'OK'){
             let data = res.data.data
+            if (res.data.data.total_amount) {
+              total_price = res.data.data.total_amount
+            }
             that.setData({
               oid: oid,
               data: data,
@@ -52,7 +56,7 @@ Page({
       wx.showToast({
         title: '提交成功',
       })
-      wx.navigateTo({
+      wx.redirectTo({
         url: '/pages/order_detail/order_detail?oid=' + oid,
       })
     }else{

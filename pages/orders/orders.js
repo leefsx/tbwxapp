@@ -256,7 +256,7 @@ Page({
         if (cash_key == '2' && cash_id){
           let total_amount = orders[index].total_amount
           wx.navigateTo({
-            url: '/pages/showsuccess/showsuccess?id=' + cash_id + '&oid=' + oid + '&total_price=' + total_amount,
+            url: '/pages/showsuccess/showsuccess?id=' + cash_id + '&oid=' + oid,
           })
           return false
         }

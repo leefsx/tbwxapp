@@ -164,14 +164,15 @@ Page({
     var oid = opt.target.dataset.oid
     let cash = this.data.cash || []
     let order = this.data.order
-    if (cash){
+    
       let cash_key = cash.key
       if(cash_key == '2'){
         wx.navigateTo({
-          url: '/pages/showsuccess/showsuccess?id=' + cash.id + '&oid=' + oid + '&total_price=' + order.total_amount_new,
+          url: '/pages/showsuccess/showsuccess?id=' + cash.id + '&oid=' + oid,
         })
+        return false;
       }
-    }else{
+    
       wx.showToast({
         title: '请求中...',
         icon: 'loading',
@@ -237,7 +238,6 @@ Page({
         })
       }
 
-    }
     
   },
   // 取消订单
