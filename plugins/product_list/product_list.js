@@ -311,7 +311,7 @@ const productListConfig = {
             let glconfig = app.globalData.config;
             let data = {}, _param_ = that.data.param;
             data['sortby'] = JSON.stringify(_param_.sortby);
-            
+            let desc_show = _param_.display.desc || false
             if (/^[1-9]\d*$/.test(option.product_category || 0))
                 data['product_category'] = option.product_category;
             else if (option.product_category){
@@ -328,29 +328,36 @@ const productListConfig = {
 					if ('ERROR' == res.data.result || '') {
 						that.setData({errmsg: res.data.errmsg})
 						return false
-					}
+					}         
+
+                    if (ispager) {
+                      let oldproducts = that.data.products
+                      products = oldproducts.concat(products)
+                    }
                     let maxln = products.length;
                     products.forEach((c, i) => {
                         if (c.doc_image.length == 0)
                             c.doc_image = glconfig.domain + "/template/default/images/effect1.png";
                         
                             if (c.intro.replace(/(^s*)|(s*$)/g, "").length == 0) c.intro = "WxParsePlaceHolder";
+                            if (desc_show){
                             WxParse.wxParse('prdintro' + i, 'html', c.intro, that);
                             if (i === maxln - 1)
                                 WxParse.wxParseTemArray("prdintroArr",'prdintro', maxln, that)
+                            }
                     });
 					
 					let _limit = _param_.data_source.limit;
 					if (ispager) {
-						that.data.products.push(...products);
-						that.setData({products: that.data.products});
+						//that.data.products.push(...products);
+						that.setData({products: products});
 						that.setData({pagerid: that.data.pagerid + 1})
 					} else that.setData({products})
-          if (_param_.data_source.type == 'ids') {
-            that.setData({ pagerShow: false })
-          } else {
-            that.setData({ pagerShow: maxln < _limit ? false : true })
-          }
+					if(_param_.data_source.type == 'ids'){
+						that.setData({ pagerShow: false })
+					}else{
+						that.setData({ pagerShow: maxln < _limit ? false : true })
+					}
                 },
                 fail (){console.error("请求失败")}
             })

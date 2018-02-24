@@ -19,8 +19,8 @@ Page({
     openid: '',
     product: [],
     order: [],
-    disass: []
-    
+    disass: [],
+    getStatusId: ''
   },
   addAddr(){
     wx.navigateTo({
@@ -33,50 +33,12 @@ Page({
     var openid = wx.getStorageSync('openid');
     var that = this
     if(oid){
-      app.apiRequest('order', 'getorder',{
-        data: {oid: oid},
-        success: function(res){
-          if(res.data.result=='OK'){
-            var order = res.data.order
-            var product  = res.data.product
-            var disass = res.data.disass
-            that.setData({
-              order: order,
-              product: product,
-              disass: disass,
-              oid: oid,
-              dis_title: res.data.dis_title,
-              trade_status: res.data.trade_status,
-              pickupaddrs: res.data.pickupaddrs,
-              cash: res.data.cash
-            })
-            if (res.data.address) {
-              that.setData({
-                delivery_addr: true,
-                address: res.data.address
-              })
-            } else {
-              wx.getStorage({
-                key: 'address',
-                success: function (ress) {
-                  that.setData({
-                    delivery_addr: true,
-                    address: ress.data
-                  })
-                }
-              })
-            }
-          }else{
-            wx.showToast({
-              title: '参数错误！',
-              duration: 2500
-            })
-            wx.navigateBack({
-              delta: 1
-            })
-          }
-        }
-      })
+      that.getStatus(oid)
+      var getStatusId = setInterval(function () {
+        return that.getStatus(oid)
+      }, 2000)
+      console.log(getStatusId)
+      that.setData({ getStatusId: getStatusId })
     }else{
       wx.showToast({
         title: '参数错误！',
@@ -109,6 +71,58 @@ Page({
       }
     })*/
   },
+  getStatus(oid) {
+    var that = this
+    var getStatusId = that.data.getStatusId
+    app.apiRequest('order', 'getorder', {
+      data: { oid: oid },
+      success: function (res) {
+        if (res.data.result == 'OK') {
+          var order = res.data.order
+          var product = res.data.product
+          var disass = res.data.disass
+          if (order.pay_status == 2){
+            clearInterval(getStatusId);
+          }
+          that.setData({
+            order: order,
+            product: product,
+            disass: disass,
+            oid: oid,
+            dis_title: res.data.dis_title,
+            trade_status: res.data.trade_status,
+            pickupaddrs: res.data.pickupaddrs,
+            cash: res.data.cash
+          })
+          if (res.data.address) {
+            that.setData({
+              delivery_addr: true,
+              address: res.data.address
+            })
+          } else {
+            wx.getStorage({
+              key: 'address',
+              success: function (ress) {
+                that.setData({
+                  delivery_addr: true,
+                  address: ress.data
+                })
+              }
+            })
+          }
+        } else {
+          wx.showToast({
+            title: '参数错误！',
+            duration: 2500
+          })
+          wx.navigateBack({
+            delta: 1
+          })
+        }
+      }
+    })
+  },
+  
   confirmOrders(e) {
     const order_id = e.currentTarget.dataset.oid;
     // const order_index = e.currentTarget.dataset.index;
